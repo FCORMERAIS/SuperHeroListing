@@ -8,8 +8,8 @@ Array.prototype.AlphaSort = function() {
 
 Array.prototype.RaceSort = function() {
     this.sort(function(a, b) {
-        if (a.appearance.race < b.appearance.race) return -1;
-        if (a.appearance.race > b.appearance.race) return 1;
+        if (b.appearance.race === null || a.appearance.race < b.appearance.race) return -1;
+        if (a.appearance.race === null || a.appearance.race > b.appearance.race) return 1;
         return 0;
     })
 }
