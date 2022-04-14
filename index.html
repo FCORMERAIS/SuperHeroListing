@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS-Project</title>
-    <link rel="shortcut icon" href="images/bg.png">
+    <link rel="shortcut icon" href="images/js.jpg">
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 
+
 <script type="module" src="js.js"></script>
+
 
 <body>
     <section class="top-page">
@@ -36,6 +38,32 @@
         </div>
     </section>
 
+    <div>
+    <label for="pet-select">Number of display :</label>
+    <select name="afficher" id="">
+        <option value="">--Please choose an option--</option>
+        <option value="">10</option>
+        <option value="">20</option>
+        <option value="">50</option>
+        <option value="">100</option>
+        <option value="">all results</option>
+    </select>
+    </div>
+
+    <div>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="3">Heros</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script type="module" src="js.js"></script>
+        </tbody>
+    </table>
+    </div>
+    
+
     <section class="sectionart">
         <h2 class="section-title">
             Les Heros
@@ -45,10 +73,9 @@
                 <h2 class="card-title">nom du heros</h2>
                 <img src="./images/bg.png">
                 <p class="card-desc">
-                    
+                    <ul id="authors"></ul>
                 </p>
             </div>
-
         </div>
         
     </section>
@@ -59,7 +86,6 @@
         </div>
     </footer>
     
-
 </body>
 
 </html>

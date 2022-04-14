@@ -68,8 +68,21 @@ nav.nav li a {
     font-family: 'Varela Round', sans-serif;
 }
 
+/* TAB */
 
-/* Artistes */
+table,
+td {
+    border: 1px solid #333;
+}
+
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
+}
+
+
+/* Card */
 
 .cards {
     width: 100%;
@@ -102,6 +115,7 @@ nav.nav li a {
     position: relative;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    /*filter: blur(2px);*/
 }
   
 .card-desc {
