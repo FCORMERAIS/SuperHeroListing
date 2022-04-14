@@ -87,8 +87,10 @@ Array.prototype.AlignementSort = function() {
 
 Array.prototype.PublisherSort = function() {
     this.sort(function(a, b) {
-        if (b.appearance.race == null || a.appearance.race < b.appearance.race) return -1;
-        if (a.appearance.race == null || a.appearance.race > b.appearance.race) return 1;
+        if (b.biography.publisher == "" && a.biography.publisher !== null) return -1;
+        if (a.biography.publisher == "" && b.biography.publisher !== null) return 1;
+        if (b.biography.publisher == null || a.biography.publisher < b.biography.publisher) return -1;
+        if (a.biography.publisher == null || a.biography.publisher > b.biography.publisher) return 1;
         return 0;
     })
 }
