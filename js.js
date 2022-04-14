@@ -1,16 +1,54 @@
 let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
 data = await data.json()
-    let listToPrint = [data[0],data[1],data[3]]
+export function GenerateTable()  {
+    let listToPrint = data
+    const tbody = document.createElement("tbody")
     for (let i = 0; i < listToPrint.length; i++) {
         const tr = document.createElement("tr")
-        for (let keys in listToPrint[i]) {
-            const td = document.createElement("td")
-            td.innerHTML = listToPrint[i][keys]
-            tr.appendChild(td)
-        }
-        document.body.appendChild(tr)
+            const tdname = document.createElement("td")
+            tdname.innerHTML = listToPrint[i].name
+            tr.appendChild(tdname)
+
+            const tdFullName = document.createElement("td")
+            tdFullName.innerHTML = listToPrint[i].biography.fullName
+            tr.appendChild(tdFullName)
+
+            for (let powerstats in listToPrint[i].powerstats) {
+                const tdpowerstats = document.createElement("td")
+                tdpowerstats.innerHTML = listToPrint[i].powerstats[powerstats]
+                tr.appendChild(tdpowerstats)
+            }
+
+            const apparenceToShow = ["race", "gender", "height", "weight"]
+            for ( let apparence in apparenceToShow ) {
+                const tdApparence = document.createElement("td")
+                tdApparence.innerHTML = listToPrint[i].appearance[apparenceToShow[apparence]]
+                tr.appendChild(tdApparence)
+            }
+
+            
+
+
+
+        tbody.appendChild(tr)
     }
-    /* recuperer les données de tout la liste a afficher 
-        cree autent de ligne que d'elem dans la list 
-        affiche les elem dans la ligne*/ 
+    let table = document.getElementById("table")
+    table.appendChild(tbody)
 }
+GenerateTable()
+/* recuperer les données de tout la liste a afficher 
+cree autent de ligne que d'elem dans la list 
+affiche les elem dans la ligne
+
+- Icon (`.images.xs`, should be displayed as images and not as a string)
+- Name (`.name`)
+- Full Name (`.biography.fullName`)
+- Powerstats (each entry of `.powerstats`)
+- Race (`.appearance.race`)
+- Gender (`.appearance.gender`)
+- Height (`.appearance.height`)
+- Weight (`.appearance.weight`)
+- Place Of Birth (`.biography.placeOfBirth`)
+- Alignement (`.biography.alignment`)
+
+*/
