@@ -21,3 +21,12 @@ Array.prototype.AlignementSort = function() {
         return 0;
     })
 }
+
+Array.prototype.PublisherSort = function() {
+    this.sort(function(a, b) {
+        if (b.appearance.race == null || a.appearance.race < b.appearance.race) return -1;
+        if (a.appearance.race == null || a.appearance.race > b.appearance.race) return 1;
+        return 0;
+    })
+}
+
