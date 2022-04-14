@@ -77,3 +77,10 @@ Array.prototype.HairColorSort = function() {
         return 0;
     })
 }
+Array.prototype.AlignementSort = function() {
+    this.sort(function(a, b) {
+        if (a.biography.alignment === '-' || a.biography.alignment < b.biography.alignment) return 1;
+        if (b.biography.alignment === '-' || a.biography.alignment > b.biography.alignment) return -1;
+        return 0;
+    })
+}
