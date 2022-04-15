@@ -5,6 +5,13 @@ export function GenerateTable()  {
     const tbody = document.createElement("tbody")
     for (let i = 0; i < listToPrint.length; i++) {
         const tr = document.createElement("tr")
+        
+            const tdImages = document.createElement("td")
+            const img = document.createElement("img")
+            img.src = listToPrint[i].images.sm
+            tdImages.appendChild(img)
+            tr.appendChild(tdImages)
+
             const tdname = document.createElement("td")
             tdname.innerHTML = listToPrint[i].name
             tr.appendChild(tdname)
