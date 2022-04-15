@@ -61,6 +61,15 @@ section.top-page {
 
 /* TAB */
 
+.button {
+    color: white;
+    padding: 5px;
+}
+
+td {
+    text-align: center;
+}
+
 .divtab {
     margin: 10px;
 }

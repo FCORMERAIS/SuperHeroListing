@@ -5,7 +5,6 @@ Array.prototype.AlphaSort = function() {
         return 0;
     })
 }
-
 Array.prototype.RaceSort = function() {
     this.sort(function(a, b) {
         if (b.appearance.race === null || a.appearance.race < b.appearance.race) return -1;
@@ -13,7 +12,6 @@ Array.prototype.RaceSort = function() {
         return 0;
     })
 }
-
 Array.prototype.PowerSortByInt = function() {
     this.sort(function(a, b) {
         if (a.powerstats.intelligence < b.powerstats.intelligence) return -1;
