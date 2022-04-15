@@ -1,3 +1,4 @@
+"use strict";
 Array.prototype.AlphaSort = function() {
     this.sort(function(a, b) {
         if (a.name < b.name) return -1;
@@ -5,6 +6,8 @@ Array.prototype.AlphaSort = function() {
         return 0;
     })
 }
+
+"use strict";
 Array.prototype.RaceSort = function() {
     this.sort(function(a, b) {
         if (b.appearance.race === null || a.appearance.race < b.appearance.race) return -1;
@@ -12,6 +15,8 @@ Array.prototype.RaceSort = function() {
         return 0;
     })
 }
+
+"use strict";
 Array.prototype.PowerSortByInt = function() {
     this.sort(function(a, b) {
         if (a.powerstats.intelligence < b.powerstats.intelligence) return -1;
@@ -19,6 +24,8 @@ Array.prototype.PowerSortByInt = function() {
         return 0;
     })
 }
+
+"use strict";
 Array.prototype.PowerSortByStr = function() {
     this.sort(function(a, b) {
         if (a.powerstats.strength < b.powerstats.strength) return -1;
@@ -26,6 +33,7 @@ Array.prototype.PowerSortByStr = function() {
         return 0;
     })
 }
+"use strict";
 Array.prototype.PowerSortBySpe = function() {
     this.sort(function(a, b) {
         if (a.powerstats.speed < b.powerstats.speed) return -1;
@@ -33,6 +41,8 @@ Array.prototype.PowerSortBySpe = function() {
         return 0;
     })
 }
+
+"use strict";
 Array.prototype.PowerSortByDur = function() {
     this.sort(function(a, b) {
         if (a.powerstats.durability < b.powerstats.durability) return -1;
@@ -40,6 +50,8 @@ Array.prototype.PowerSortByDur = function() {
         return 0;
     })
 }
+
+"use strict";
 Array.prototype.PowerSortByPow = function() {
     this.sort(function(a, b) {
         if (a.powerstats.power < b.powerstats.power) return -1;
@@ -47,6 +59,8 @@ Array.prototype.PowerSortByPow = function() {
         return 0;
     })
 }
+
+"use strict";
 Array.prototype.PowerSortByCom = function() {
     this.sort(function(a, b) {
         if (a.powerstats.combat < b.powerstats.combat) return -1;
@@ -54,6 +68,8 @@ Array.prototype.PowerSortByCom = function() {
         return 0;
     })
 }
+
+"use strict";
 Array.prototype.GenderSort = function() {
     this.sort(function(a, b) {
         if (b.appearance.gender === "-" || a.appearance.gender < b.appearance.gender) return -1;
@@ -61,6 +77,8 @@ Array.prototype.GenderSort = function() {
         return 0;
     })
 }
+
+"use strict";
 Array.prototype.EyeColorSort = function() {
     this.sort(function(a, b) {
         if (b.appearance.eyeColor === "-" || a.appearance.eyeColor < b.appearance.eyeColor) return -1;
@@ -68,6 +86,8 @@ Array.prototype.EyeColorSort = function() {
         return 0;
     })
 }
+
+"use strict";
 Array.prototype.HairColorSort = function() {
     this.sort(function(a, b) {
         if (b.appearance.hairColor === "-" || a.appearance.hairColor < b.appearance.hairColor) return -1;
@@ -75,10 +95,23 @@ Array.prototype.HairColorSort = function() {
         return 0;
     })
 }
+
+"use strict";
 Array.prototype.AlignementSort = function() {
     this.sort(function(a, b) {
         if (a.biography.alignment === '-' || a.biography.alignment < b.biography.alignment) return 1;
         if (b.biography.alignment === '-' || a.biography.alignment > b.biography.alignment) return -1;
+        return 0;
+    })
+}
+
+"use strict";
+Array.prototype.PublisherSort = function() {
+    this.sort(function(a, b) {
+        if (b.biography.publisher == "" && a.biography.publisher !== null) return -1;
+        if (a.biography.publisher == "" && b.biography.publisher !== null) return 1;
+        if (b.biography.publisher == null || a.biography.publisher < b.biography.publisher) return -1;
+        if (a.biography.publisher == null || a.biography.publisher > b.biography.publisher) return 1;
         return 0;
     })
 }
