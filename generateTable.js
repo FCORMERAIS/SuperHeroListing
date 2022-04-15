@@ -30,7 +30,7 @@ export function GenerateTable()  {
             }
 
             const apparenceToShow = ["race", "gender", "height", "weight"]
-            for ( let apparence in apparenceToShow ) {
+            for ( let apparence =0;apparence<4;apparence++ ) {
                 const tdApparence = document.createElement("td")
                 tdApparence.innerHTML = listToPrint[i].appearance[apparenceToShow[apparence]]
                 tr.appendChild(tdApparence)
@@ -50,6 +50,7 @@ export function GenerateTable()  {
     table.appendChild(tbody)
 }
 GenerateTable()
+
 /* recuperer les données de tout la liste a afficher 
 cree autent de ligne que d'elem dans la list 
 affiche les elem dans la ligne
