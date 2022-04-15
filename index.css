@@ -68,6 +68,7 @@ nav.nav li a {
     font-family: 'Varela Round', sans-serif;
 }
 
+
 /* TAB */
 
 table,
@@ -90,13 +91,13 @@ tfoot {
     flex-wrap: wrap;
     justify-content: space-around;
 }
-  
+
 .card {
     margin: 30px;
     position: relative;
     box-shadow: 0 40px 60px -6px black;
 }
-  
+
 .card-title {
     display: block;
     text-align: center;
@@ -106,7 +107,7 @@ tfoot {
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
 }
-  
+
 .card img {
     width: 350px;
     height: 350px;
@@ -117,7 +118,7 @@ tfoot {
     border-bottom-right-radius: 5px;
     /*filter: blur(2px);*/
 }
-  
+
 .card-desc {
     display: block;
     font-size: 1.2rem;
@@ -131,7 +132,7 @@ tfoot {
     overflow-y: scroll;
     transition: 0.8s ease;
 }
-  
+
 .card:hover .card-desc {
     opacity: 1;
     height: 371px;
@@ -162,6 +163,7 @@ tfoot {
     margin: 100px;
 }
 
+
 /* pied de page */
 
 footer {
@@ -173,4 +175,8 @@ footer {
     align-items: center;
     font-weight: bolder;
     font-family: 'Varela Round', sans-serif;
+}
+
+tr:nth-child(even) {
+    background-color: #e0e0e0;
 }

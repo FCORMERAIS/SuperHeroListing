@@ -1,38 +1,46 @@
 let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
 data = await data.json()
-export function GenerateTable()  {
+export function GenerateTable() {
     let listToPrint = data
     const tbody = document.createElement("tbody")
+    let listColor = ["#FF0DE1", "#CA0DFF", "#6B0DFF", "#0D16FF", "#0D7CFF", "#0DC0FF", "#0DFFD9", "#0DFF85", "#0DFF29", "#50FF0D", "#A7FF0D", "#F3FF0D", "#FFA60D", "#FF4B0D", "#FF110D", "#FF0D5E", "#FF0DA7"]
     for (let i = 0; i < listToPrint.length; i++) {
         const tr = document.createElement("tr")
-            const tdname = document.createElement("td")
-            tdname.innerHTML = listToPrint[i].name
-            tr.appendChild(tdname)
+        tr.onmouseover = function() { this.style.backgroundColor = listColor[Math.floor(Math.random() * listColor.length)] }
+        if (i % 2 == 0) {
+            tr.onmouseout = function() { this.style.backgroundColor = '#ffffff' }
+        } else {
+            tr.onmouseout = function() { this.style.backgroundColor = '#e0e0e0' }
+        }
 
-            const tdFullName = document.createElement("td")
-            tdFullName.innerHTML = listToPrint[i].biography.fullName
-            tr.appendChild(tdFullName)
+        const tdname = document.createElement("td")
+        tdname.innerHTML = listToPrint[i].name
+        tr.appendChild(tdname)
 
-            for (let powerstats in listToPrint[i].powerstats) {
-                const tdpowerstats = document.createElement("td")
-                tdpowerstats.innerHTML = listToPrint[i].powerstats[powerstats]
-                tr.appendChild(tdpowerstats)
-            }
+        const tdFullName = document.createElement("td")
+        tdFullName.innerHTML = listToPrint[i].biography.fullName
+        tr.appendChild(tdFullName)
 
-            const apparenceToShow = ["race", "gender", "height", "weight"]
-            for ( let apparence in apparenceToShow ) {
-                const tdApparence = document.createElement("td")
-                tdApparence.innerHTML = listToPrint[i].appearance[apparenceToShow[apparence]]
-                tr.appendChild(tdApparence)
-            }
+        for (let powerstats in listToPrint[i].powerstats) {
+            const tdpowerstats = document.createElement("td")
+            tdpowerstats.innerHTML = listToPrint[i].powerstats[powerstats]
+            tr.appendChild(tdpowerstats)
+        }
 
-            const tdpOfBirth = document.createElement("td")
-            tdpOfBirth.innerHTML = listToPrint[i].biography.placeOfBirth
-            tr.appendChild(tdpOfBirth)
+        const apparenceToShow = ["race", "gender", "height", "weight"]
+        for (let apparence in apparenceToShow) {
+            const tdApparence = document.createElement("td")
+            tdApparence.innerHTML = listToPrint[i].appearance[apparenceToShow[apparence]]
+            tr.appendChild(tdApparence)
+        }
 
-            const tdAlignment = document.createElement("td")
-            tdAlignment.innerHTML = listToPrint[i].biography.alignment
-            tr.appendChild(tdAlignment)
+        const tdpOfBirth = document.createElement("td")
+        tdpOfBirth.innerHTML = listToPrint[i].biography.placeOfBirth
+        tr.appendChild(tdpOfBirth)
+
+        const tdAlignment = document.createElement("td")
+        tdAlignment.innerHTML = listToPrint[i].biography.alignment
+        tr.appendChild(tdAlignment)
 
         tbody.appendChild(tr)
     }
@@ -40,19 +48,19 @@ export function GenerateTable()  {
     table.appendChild(tbody)
 }
 GenerateTable()
-/* recuperer les données de tout la liste a afficher 
-cree autent de ligne que d'elem dans la list 
-affiche les elem dans la ligne
+    /* recuperer les données de tout la liste a afficher 
+    cree autent de ligne que d'elem dans la list 
+    affiche les elem dans la ligne
 
-- Icon (`.images.xs`, should be displayed as images and not as a string)
-- Name (`.name`)
-- Full Name (`.biography.fullName`)
-- Powerstats (each entry of `.powerstats`)
-- Race (`.appearance.race`)
-- Gender (`.appearance.gender`)
-- Height (`.appearance.height`)
-- Weight (`.appearance.weight`)
-- Place Of Birth (`.biography.placeOfBirth`)
-- Alignement (`.biography.alignment`)
+    - Icon (`.images.xs`, should be displayed as images and not as a string)
+    - Name (`.name`)
+    - Full Name (`.biography.fullName`)
+    - Powerstats (each entry of `.powerstats`)
+    - Race (`.appearance.race`)
+    - Gender (`.appearance.gender`)
+    - Height (`.appearance.height`)
+    - Weight (`.appearance.weight`)
+    - Place Of Birth (`.biography.placeOfBirth`)
+    - Alignement (`.biography.alignment`)
 
-*/
+    */
