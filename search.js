@@ -1,13 +1,16 @@
+"use strict";
 export function search(user_search,data) {
+    let res = []
     for (let index = 0; index < data.length; index++) {
         let tempo = [data[index].name, data[index].biography.fullName]
         data[index].biography.aliases.forEach(element => {
             tempo.push(element)
         });
         if (verify(user_search, tempo)) {
-            console.log(data[index])
+            res.push(data[index])
         }
     }
+    return res
 }
 
 function verify(user_search, tempo) {
