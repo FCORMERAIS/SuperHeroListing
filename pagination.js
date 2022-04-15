@@ -3,6 +3,5 @@ export function pagin(data,page,nb) {
     data.slice(page*nb,(page+1)*nb).forEach(element => {
         res.push(element)
     })
-    console.log(element)
     return res
 }
