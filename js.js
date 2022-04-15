@@ -26,9 +26,13 @@ export function GenerateTable()  {
                 tr.appendChild(tdApparence)
             }
 
-            
+            const tdpOfBirth = document.createElement("td")
+            tdpOfBirth.innerHTML = listToPrint[i].biography.placeOfBirth
+            tr.appendChild(tdpOfBirth)
 
-
+            const tdAlignment = document.createElement("td")
+            tdAlignment.innerHTML = listToPrint[i].biography.alignment
+            tr.appendChild(tdAlignment)
 
         tbody.appendChild(tr)
     }
