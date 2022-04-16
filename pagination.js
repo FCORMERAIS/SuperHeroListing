@@ -1,4 +1,4 @@
-export async function pagin (last=0,nb){
+export async function pagin (nb,last=0){
     let res = []
     let heroID = last+1
     let count = 0
@@ -13,5 +13,6 @@ export async function pagin (last=0,nb){
             heroID++
         }
     }
+    console.log(res)
     return res
 }
