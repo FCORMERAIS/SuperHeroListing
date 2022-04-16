@@ -13,6 +13,13 @@ export async function pagin (nb,last=0){
             heroID++
         }
     }
-    console.log(res)
     return res
 }
+
+export async function page1 () {}
+
+export async function lastPage(){}
+
+export async function NextPage(){}
+
+export async function PreviousPage(){}

@@ -6,7 +6,7 @@ import {pagin} from './pagination.js';
 // data = await data.json()
 
 export async function GenerateTable()  {
-    let listToPrint = await pagin(25)
+    let listToPrint = await pagin(100,100)
     console.log(listToPrint)
     const tbody = document.createElement("tbody")
     for (let i = 0; i < listToPrint.length; i++) {
