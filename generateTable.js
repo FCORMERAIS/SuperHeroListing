@@ -1,12 +1,12 @@
 import * as filter from "./filter.js";
 import { search } from './search.js';
-import {pagin} from './pagination.js';
+import {pagin,page1,lastPage} from './pagination.js';
 
 // let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
 // data = await data.json()
 
 export async function GenerateTable()  {
-    let listToPrint = await pagin(100,100)
+    let listToPrint = await page1()
     console.log(listToPrint)
     const tbody = document.createElement("tbody")
     for (let i = 0; i < listToPrint.length; i++) {
