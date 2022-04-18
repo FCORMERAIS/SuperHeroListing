@@ -1,4 +1,3 @@
-<<<<<<< HEAD:generateTable.js
 import * as filter from "./filter.js";
 import { search } from './search.js';
 import {pagin,page1,lastPage} from './pagination.js';
@@ -9,12 +8,6 @@ import {pagin,page1,lastPage} from './pagination.js';
 export async function GenerateTable()  {
     let listToPrint = await page1()
     console.log(listToPrint)
-=======
-let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
-data = await data.json()
-export function GenerateTable() {
-    let listToPrint = data
->>>>>>> 4ace6fab48035729bd7c145378dba43f1f878c14:js.js
     const tbody = document.createElement("tbody")
     let listColor = ["#FF0DE1", "#CA0DFF", "#6B0DFF", "#0D16FF", "#0D7CFF", "#0DC0FF", "#0DFFD9", "#0DFF85", "#0DFF29", "#50FF0D", "#A7FF0D", "#F3FF0D", "#FFA60D", "#FF4B0D", "#FF110D", "#FF0D5E", "#FF0DA7"]
     for (let i = 0; i < listToPrint.length; i++) {
