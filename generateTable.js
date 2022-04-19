@@ -4,7 +4,9 @@ import {pagin,page1,lastPage} from './pagination.js';
 
 // let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
 // data = await data.json()
-
+let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
+data = await data.json()
+console.log(data[1].biography.aliases[1])
 export async function GenerateTable()  {
     let listToPrint = await page1()
     console.log(listToPrint)
