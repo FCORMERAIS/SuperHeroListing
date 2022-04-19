@@ -1,6 +1,6 @@
 import * as filter from "./filter.js";
-import { search } from './search.js';
-import {pagin,page1,lastPage} from './pagination.js';
+import * as search from './search.js';
+import * as pagination from './pagination.js';
 
 // let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
 // data = await data.json()
@@ -8,7 +8,7 @@ let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/ap
 data = await data.json()
 console.log(data[1].biography.aliases[1]) // console.log(height)
 export async function GenerateTable()  {
-    let listToPrint = await page1()
+    let listToPrint = await pagination.firstPage()
     console.log(listToPrint)
     const tbody = document.createElement("tbody")
     let listColor = ["#FF0DE1", "#CA0DFF", "#6B0DFF", "#0D16FF", "#0D7CFF", "#0DC0FF", "#0DFFD9", "#0DFF85", "#0DFF29", "#50FF0D", "#A7FF0D", "#F3FF0D", "#FFA60D", "#FF4B0D", "#FF110D", "#FF0D5E", "#FF0DA7"]
