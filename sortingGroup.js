@@ -1,10 +1,10 @@
 "use strict";
-Array.prototype.sortingWeight = function () { 
+Array.prototype.sortingGroup = function () { 
     this.sort(function(a, b) {
 
     // Spliting the first value and decomposing the list into a string :
-    a = parseInt(data.appearance.weight[1].split(" ") [0]);
-    b = parseInt(data.appearance.weight[1].split(" ") [0]);
+    a = parseInt(data.connections.groupAffiliation[1].toString(" ") [0]);
+    b = parseInt(data.connections.groupAffiliation[1].toString(" ") [0]);
 
     // Sorting values in ascending order :
     if (a < b) return -1;
