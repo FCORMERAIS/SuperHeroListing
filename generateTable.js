@@ -54,6 +54,7 @@ export async function GenerateTable() {
     let table = document.getElementById("table")
     table.appendChild(tbody)
 }
+
 GenerateTable()
     /* recuperer les données de tout la liste a afficher 
     cree autent de ligne que d'elem dans la list 
