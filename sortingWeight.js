@@ -11,6 +11,7 @@ Array.prototype.sortingWeight = function () {
     if (a > b) return 1;
     return 0;
     })
+    
     // Si descending pressé : 
     // Array.prototype.reverse.this.sort(a, b);
 }
