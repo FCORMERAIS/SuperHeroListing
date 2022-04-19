@@ -1,3 +1,4 @@
+"use strict";
 function sortingHeight (ID) {
     // Spliting the first value :
     let height = data[ID].appearance.height[1];
@@ -8,10 +9,11 @@ function sortingHeight (ID) {
     heightNumbers.toString();
 
     // Sorting values in ascending order :
-    heightNumbers.sort();
+    this.sort(function(a, b) {
+        if (a.heightNumbers < b.heightNumbers) return -1;
+        if (a.heightNumbers > b.heightNumbers) return 1;
+        return 0;
+    })
+    // Si descending pressé : 
+    // Array.prototype.reverse(sortingHeight);
 }
-
-// Si Ascending pressé : 
-// Sinon si Descending pressé : 
-
-// Comment trier par rapport à 50 ?
