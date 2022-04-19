@@ -15,6 +15,6 @@ function sortingWeight (ID) {
         return 0;
     })    
     // Si descending pressé : 
-    // Array.prototype.reverse(sortingHeight);
+    // Array.prototype.reverse.this.sort(a, b);
 }
 
