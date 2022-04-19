@@ -1,19 +1,18 @@
 import * as filter from "./filter.js";
-import * as search from './search.js';
-import * as pagination from './pagination.js';
+import { search } from './search.js';
+import { pagin, page1, lastPage } from './pagination.js';
 
 // let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
 // data = await data.json()
-let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
-data = await data.json()
-console.log(data[1].biography.aliases[1]) // console.log(height)
-export async function GenerateTable()  {
-    let listToPrint = await pagination.firstPage()
+
+export async function GenerateTable() {
+    let listToPrint = await page1()
     console.log(listToPrint)
     const tbody = document.createElement("tbody")
     let listColor = ["#FF0DE1", "#CA0DFF", "#6B0DFF", "#0D16FF", "#0D7CFF", "#0DC0FF", "#0DFFD9", "#0DFF85", "#0DFF29", "#50FF0D", "#A7FF0D", "#F3FF0D", "#FFA60D", "#FF4B0D", "#FF110D", "#FF0D5E", "#FF0DA7"]
     for (let i = 0; i < listToPrint.length; i++) {
         const tr = document.createElement("tr")
+        tr.onclick = function() { ShowPopup(listToPrint[i].id) }
         tr.onmouseover = function() { this.style.backgroundColor = listColor[Math.floor(Math.random() * listColor.length)] }
         if (i % 2 == 0) {
             tr.onmouseout = function() { this.style.backgroundColor = '#ffffff' }
@@ -56,20 +55,31 @@ export async function GenerateTable()  {
     table.appendChild(tbody)
 }
 GenerateTable()
+    /* recuperer les données de tout la liste a afficher 
+    cree autent de ligne que d'elem dans la list 
+    affiche les elem dans la ligne
 
-/* recuperer les données de tout la liste a afficher 
-cree autent de ligne que d'elem dans la list 
-affiche les elem dans la ligne
+    - Icon (`.images.xs`, should be displayed as images and not as a string)
+    - Name (`.name`)
+    - Full Name (`.biography.fullName`)
+    - Powerstats (each entry of `.powerstats`)
+    - Race (`.appearance.race`)
+    - Gender (`.appearance.gender`)
+    - Height (`.appearance.height`)
+    - Weight (`.appearance.weight`)
+    - Place Of Birth (`.biography.placeOfBirth`)
+    - Alignement (`.biography.alignment`)
 
-- Icon (`.images.xs`, should be displayed as images and not as a string)
-- Name (`.name`)
-- Full Name (`.biography.fullName`)
-- Powerstats (each entry of `.powerstats`)
-- Race (`.appearance.race`)
-- Gender (`.appearance.gender`)
-- Height (`.appearance.height`)
-- Weight (`.appearance.weight`)
-- Place Of Birth (`.biography.placeOfBirth`)
-- Alignement (`.biography.alignment`)
+    */
 
-*/
+export function ShowPopup(id) {
+    document.getElementById("popup").classList.remove("notshow")
+    let popup = document.getElementById("popupContenant")
+    let persoData = data[id]
+    popup.replaceChildren()
+
+    let img = document.createElement("img")
+    img.src = persoData.images.md
+    popup.appendChild(img)
+
+}

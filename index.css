@@ -22,6 +22,7 @@ section.top-page {
     background-size: cover;
 }
 
+
 /* bannières */
 
 .landing-page {
@@ -31,7 +32,11 @@ section.top-page {
     font-size: 100px;
 }
 
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+>>>>>>> a1c8c892d44c29d58aa29ce9d3ad00414fd1fc45
 /* TAB */
 
 table,
@@ -105,8 +110,14 @@ tfoot {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+<<<<<<< HEAD
+=======
 
-.section-title {
+=======
+/* title */
+>>>>>>> a1c8c892d44c29d58aa29ce9d3ad00414fd1fc45
+
+>>>>>>>d2fca7735c70d051bf0997d6e54d61e06510f5c1 .section-title {
     margin: 50px;
     font-size: 50px;
     font-weight: 100;
@@ -126,11 +137,16 @@ tfoot {
     margin: 100px;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a1c8c892d44c29d58aa29ce9d3ad00414fd1fc45
 /* select */
 
 .divselect {
     margin: 50px;
 }
+
 
 /* TAB */
 
@@ -147,14 +163,20 @@ td {
     margin: 10px;
 }
 
-table,td {
+table,
+td {
     border: 1px solid black;
 }
 
-thead,tfoot {
+thead,
+tfoot {
     background-color: black;
     color: black;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a1c8c892d44c29d58aa29ce9d3ad00414fd1fc45
 
 /* pied de page */
 
@@ -166,9 +188,40 @@ footer {
     justify-content: center;
     align-items: center;
     font-weight: bolder;
+<<<<<<< HEAD
     font-family: 'Varela Round', sans-serif;
+=======
+    <<<<<<< HEAD font-family: 'Varela Round', sans-serif;
+>>>>>>> a1c8c892d44c29d58aa29ce9d3ad00414fd1fc45
 }
 
 tr:nth-child(even) {
     background-color: #e0e0e0;
+<<<<<<< HEAD
+=======
+}
+
+#popup {
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    background-color: rgb(255, 0, 0);
+    z-index: 9999;
+}
+
+.notshow {
+    display: none;
+}
+
+#close {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    height: 2em;
+    width: 2em;
+    border-radius: 1em;
+    background-color: black;
+    color: aliceblue;
+    =======>>>>>>>d2fca7735c70d051bf0997d6e54d61e06510f5c1
+>>>>>>> a1c8c892d44c29d58aa29ce9d3ad00414fd1fc45
 }
