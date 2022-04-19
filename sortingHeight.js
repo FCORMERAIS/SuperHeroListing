@@ -1,14 +1,17 @@
-// Si Ascending pressé : 
-// Sinon si Descending pressé : 
-
-function sortingWeight (argument) {
+function sortingHeight (ID) {
     // Spliting the first value :
-    let height = data[argument].appearance.height[1];
+    let height = data[ID].appearance.height[1];
     const heightSplit = height.split(" ");
     let heightNumbers = heightSplit[0];
 
     // Decomposing the list into a string :
     heightNumbers.toString();
-    const heightNumbersTest = [5, 7, 3, 10];
-    test.sort();
+
+    // Sorting values in ascending order :
+    heightNumbers.sort();
 }
+
+// Si Ascending pressé : 
+// Sinon si Descending pressé : 
+
+// Comment trier par rapport à 50 ?
