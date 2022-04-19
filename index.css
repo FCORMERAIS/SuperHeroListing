@@ -32,11 +32,6 @@ section.top-page {
     font-size: 100px;
 }
 
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
->>>>>>> a1c8c892d44c29d58aa29ce9d3ad00414fd1fc45
 /* TAB */
 
 table,
@@ -110,14 +105,10 @@ tfoot {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
-<<<<<<< HEAD
-=======
 
-=======
 /* title */
->>>>>>> a1c8c892d44c29d58aa29ce9d3ad00414fd1fc45
 
->>>>>>>d2fca7735c70d051bf0997d6e54d61e06510f5c1 .section-title {
+.section-title {
     margin: 50px;
     font-size: 50px;
     font-weight: 100;
@@ -137,10 +128,6 @@ tfoot {
     margin: 100px;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> a1c8c892d44c29d58aa29ce9d3ad00414fd1fc45
 /* select */
 
 .divselect {
@@ -173,10 +160,6 @@ tfoot {
     background-color: black;
     color: black;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> a1c8c892d44c29d58aa29ce9d3ad00414fd1fc45
 
 /* pied de page */
 
@@ -188,17 +171,12 @@ footer {
     justify-content: center;
     align-items: center;
     font-weight: bolder;
-<<<<<<< HEAD
     font-family: 'Varela Round', sans-serif;
-=======
-    <<<<<<< HEAD font-family: 'Varela Round', sans-serif;
->>>>>>> a1c8c892d44c29d58aa29ce9d3ad00414fd1fc45
+    font-family: 'Varela Round', sans-serif;
 }
 
 tr:nth-child(even) {
     background-color: #e0e0e0;
-<<<<<<< HEAD
-=======
 }
 
 #popup {
@@ -222,6 +200,4 @@ tr:nth-child(even) {
     border-radius: 1em;
     background-color: black;
     color: aliceblue;
-    =======>>>>>>>d2fca7735c70d051bf0997d6e54d61e06510f5c1
->>>>>>> a1c8c892d44c29d58aa29ce9d3ad00414fd1fc45
 }
