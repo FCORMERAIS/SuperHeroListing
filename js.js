@@ -6,6 +6,7 @@ export function GenerateTable() {
     let listColor = ["#FF0DE1", "#CA0DFF", "#6B0DFF", "#0D16FF", "#0D7CFF", "#0DC0FF", "#0DFFD9", "#0DFF85", "#0DFF29", "#50FF0D", "#A7FF0D", "#F3FF0D", "#FFA60D", "#FF4B0D", "#FF110D", "#FF0D5E", "#FF0DA7"]
     for (let i = 0; i < listToPrint.length; i++) {
         const tr = document.createElement("tr")
+        tr.onclick = function() { ShowPopup(listToPrint[i].id) }
         tr.onmouseover = function() { this.style.backgroundColor = listColor[Math.floor(Math.random() * listColor.length)] }
         if (i % 2 == 0) {
             tr.onmouseout = function() { this.style.backgroundColor = '#ffffff' }
@@ -64,3 +65,15 @@ GenerateTable()
     - Alignement (`.biography.alignment`)
 
     */
+
+export function ShowPopup(id) {
+    document.getElementById("popup").classList.remove("notshow")
+    let popup = document.getElementById("popupContenant")
+    let persoData = data[id]
+    popup.replaceChildren()
+
+    let img = document.createElement("img")
+    img.src = persoData.images.md
+    popup.appendChild(img)
+
+}

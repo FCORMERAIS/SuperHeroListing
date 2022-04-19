@@ -180,3 +180,26 @@ footer {
 tr:nth-child(even) {
     background-color: #e0e0e0;
 }
+
+#popup {
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    background-color: rgb(255, 0, 0);
+    z-index: 9999;
+}
+
+.notshow {
+    display: none;
+}
+
+#close {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    height: 2em;
+    width: 2em;
+    border-radius: 1em;
+    background-color: black;
+    color: aliceblue;
+}

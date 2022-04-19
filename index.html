@@ -25,6 +25,7 @@
 
 
 <body>
+    <script type="module" src="js.js"></script>
     <section class="top-page">
         <header class="header">
             <img src="" alt="Logo du site">
@@ -41,13 +42,12 @@
     <div>
         <label for="pet-select">Number of display :</label>
         <select name="afficher" id="nbtDisplay">
-        <option value="">--Please choose an option--</option>
-        <option value="">10</option>
-        <option value="">20</option>
-        <option value="">50</option>
-        <option value="">100</option>
-        <option value="">all results</option>
-    </select>
+                <option value="10">10</option>
+                <option value="20" selected="selected">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="all results">all results</option>
+            </select>
     </div>
 
     <div>
@@ -57,10 +57,21 @@
                     <th colspan="500">Heros</th>
                 </tr>
             </thead>
-            <script type="module" src="js.js"></script>
         </table>
     </div>
 
+    <div id="popup" class="notshow">
+        <div id="popupContenant" style="padding: 1em;"></div>
+        <div id="close" onclick="ClosePopup()">
+            X
+        </div>
+    </div>
+    <script>
+        function ClosePopup() {
+            let popup = document.getElementById("popup")
+            popup.classList.add("notshow")
+        }
+    </script>
 
     <section class="sectionart">
         <h2 class="section-title">
