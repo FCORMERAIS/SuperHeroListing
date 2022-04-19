@@ -1,19 +1,16 @@
 "use strict";
-function sortingHeight (ID) {
-    // Spliting the first value :
-    let height = data[ID].appearance.height[1];
-    const heightSplit = height.split(" ");
-    let heightNumbers = heightSplit[0];
+Array.prototype.sortingHeight = function () { 
+    this.sort(function(a, b) {
 
-    // Decomposing the list into a string :
-    heightNumbers.toString();
+    // Spliting the first value and decomposing the list into a string :
+    a = parseInt(data.appearance.height[1].split(" ") [0]);
+    b = parseInt(data.appearance.height[1].split(" ") [0]);
 
     // Sorting values in ascending order :
-    this.sort(function(a, b) {
-        if (a.heightNumbers < b.heightNumbers) return -1;
-        if (a.heightNumbers > b.heightNumbers) return 1;
-        return 0;
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
     })
     // Si descending pressé : 
     // Array.prototype.reverse.this.sort(a, b);
-}
+} 

@@ -1,20 +1,16 @@
 "use strict";
-function sortingWeight (ID) {
-    // Spliting the first value :
-    let weight = data[ID].appearance.weight[1];
-    const weightSplit = weight.split(" ");
-    let weightNumbers = weightSplit[0];
+Array.prototype.sortingWeight = function () { 
+    this.sort(function(a, b) {
 
-    // Decomposing the list into a string :
-    weightNumbers.toString();
+    // Spliting the first value and decomposing the list into a string :
+    a = parseInt(data.appearance.weight[1].split(" ") [0]);
+    b = parseInt(data.appearance.weight[1].split(" ") [0]);
 
     // Sorting values in ascending order :
-    this.sort(function(a, b) {
-        if (a.weightNumbers < b.weightNumbers) return -1;
-        if (a.weightNumbers > b.weightNumbers) return 1;
-        return 0;
-    })    
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
+    })
     // Si descending pressé : 
     // Array.prototype.reverse.this.sort(a, b);
 }
-
