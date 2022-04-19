@@ -1,6 +1,7 @@
 * {
     margin: 0px;
     padding: 0px;
+    font-family: 'Varela Round', sans-serif;
 }
 
 html {
@@ -13,27 +14,8 @@ body {
     width: 100%;
 }
 
-header {
-    z-index: 1;
-}
-
 
 /* tete de page */
-
-header.header {
-    position: fixed;
-    border: 2px solid #786191;
-    border-radius: 12px;
-    margin: 2.5px;
-    background-color: #2F2638;
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-header.header img {
-    width: 45px;
-}
 
 section.top-page {
     background: url('../images/bg.png');
@@ -41,34 +23,16 @@ section.top-page {
 }
 
 
-/* menu de navigation */
-
-nav.nav {
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    margin-left: 30px;
-}
-
-nav.nav li a {
-    color: white;
-    text-decoration: none;
-    margin-right: 30px;
-    font-family: 'Varela Round', sans-serif;
-}
-
-
-/* page de bienvenue */
+/* bannières */
 
 .landing-page {
     position: relative;
-    padding: 150px 50px;
+    padding: 50px 50px;
     color: white;
     font-size: 100px;
-    font-family: 'Varela Round', sans-serif;
 }
 
-
+<<<<<<< HEAD
 /* TAB */
 
 table,
@@ -143,11 +107,14 @@ tfoot {
     border-bottom-right-radius: 5px;
 }
 
-.section-title {
+=======
+/* title */
+
+>>>>>>>d2fca7735c70d051bf0997d6e54d61e06510f5c1 .section-title {
+    margin: 50px;
     font-size: 50px;
     font-weight: 100;
     position: relative;
-    font-family: 'Architects Daughter', cursive;
 }
 
 .section-title::before {
@@ -164,6 +131,40 @@ tfoot {
 }
 
 
+/* select */
+
+.divselect {
+    margin: 50px;
+}
+
+
+/* TAB */
+
+.button {
+    color: white;
+    padding: 5px;
+}
+
+td {
+    text-align: center;
+}
+
+.divtab {
+    margin: 10px;
+}
+
+table,
+td {
+    border: 1px solid black;
+}
+
+thead,
+tfoot {
+    background-color: black;
+    color: black;
+}
+
+
 /* pied de page */
 
 footer {
@@ -174,7 +175,7 @@ footer {
     justify-content: center;
     align-items: center;
     font-weight: bolder;
-    font-family: 'Varela Round', sans-serif;
+    <<<<<<< HEAD font-family: 'Varela Round', sans-serif;
 }
 
 tr:nth-child(even) {
@@ -202,4 +203,5 @@ tr:nth-child(even) {
     border-radius: 1em;
     background-color: black;
     color: aliceblue;
+    =======>>>>>>>d2fca7735c70d051bf0997d6e54d61e06510f5c1
 }
