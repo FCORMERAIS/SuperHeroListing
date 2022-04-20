@@ -1,29 +1,33 @@
 export async function ShowPopup(id) {
-    document.getElementById("popup").classList.remove("notshow")
-    let popup = document.getElementById("popupContenant")
+
+    document.getElementById("popup").style.display = "flex"
+    document.getElementById("BiographyCat").style.backgroundColor = "#392D4C"
+    document.getElementById("AppearanceCat").style.backgroundColor = "transparent"
+    document.getElementById("PowerstatsCat").style.backgroundColor = "transparent"
+    document.getElementById("OtherCat").style.backgroundColor = "transparent"
 
     let persoData = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/id/" + id.toString() + ".json")
     persoData = await persoData.json()
 
-    let img = document.getElementById("PopupImg")
-    img.src = persoData.images.md
-
-    let name = document.getElementById("PopupName")
-    name.innerHTML = persoData.name
+    document.getElementById("PopupImg").src = persoData.images.md
+    document.getElementById("PopupName").innerHTML = persoData.name
 
     let Bio = document.getElementById("Biography")
+    Bio.style.display = "block"
     Bio.innerHTML = ""
     for (let data in persoData.biography) {
         Bio.innerHTML += data + " : " + persoData.biography[data] + "<br>"
     }
 
     let App = document.getElementById("Appearance")
+    App.style.display = "none"
     App.innerHTML = ""
     for (let data in persoData.appearance) {
         App.innerHTML += data + " : " + persoData.appearance[data] + "<br>"
     }
 
     let PSt = document.getElementById("Powerstats")
+    PSt.style.display = "none"
     PSt.innerHTML = ""
     for (let data in persoData.powerstats) {
         PSt.innerHTML += data + " : " + persoData.powerstats[data] + "<br>"
@@ -31,6 +35,7 @@ export async function ShowPopup(id) {
 
 
     let Oth = document.getElementById("Other")
+    Oth.style.display = "none"
     Oth.innerHTML = ""
     for (let data in persoData.connections) {
         Oth.innerHTML += data + " : " + persoData.connections[data] + "<br>"
@@ -48,10 +53,10 @@ function OpenPopupTab(id) {
     ]
     for (let i = 0; i < 4; i++) {
         if (id == i) {
-            listCat[i][0].style.backgroundColor = "#FF1313"
+            listCat[i][0].style.backgroundColor = "#392D4C"
             listCat[i][1].style.display = "block"
         } else {
-            listCat[i][0].style.backgroundColor = "#CD0000"
+            listCat[i][0].style.backgroundColor = "transparent"
             listCat[i][1].style.display = "none"
         }
     }
@@ -64,3 +69,5 @@ function GeneratePopupCatAction() {
     document.getElementById("OtherCat").onclick = function() { OpenPopupTab(3) }
 }
 GeneratePopupCatAction()
+let popup = document.getElementById("popup")
+popup.style.display = "none"

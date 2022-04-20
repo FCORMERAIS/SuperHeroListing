@@ -54,10 +54,11 @@
     </div>
 
 
-    <div id="popup" class="notshow" style="padding: 1em;">
-        <img id="PopupImg" style="display: inline-block;">
-        <div id="popupContenant " style="display: inline-block;">
-            <h1 id="PopupName"></h1>
+    <div id="popup" class="notshow">
+        <img id="PopupImg" style="z-index: 2">
+        <div id="tape"></div>
+        <div id="popupContenant">
+            <h1 id="PopupName" style="color: azure;text-align: center;height: 1.5em;"></h1>
             <div id="categorie">
                 <div id="BiographyCat" class="cat">Biography</div>
                 <div id="AppearanceCat" class="cat">Appearance</div>
@@ -65,10 +66,10 @@
                 <div id="OtherCat" class="cat">Other</div>
             </div>
             <div>
-                <div id="Biography"></div>
-                <div id="Appearance"></div>
-                <div id="Powerstats"></div>
-                <div id="Other"></div>
+                <div id="Biography" class="PopupInfo"></div>
+                <div id="Appearance" class="PopupInfo"></div>
+                <div id="Powerstats" class="PopupInfo"></div>
+                <div id="Other" class="PopupInfo"></div>
             </div>
         </div>
         <div id="close" onclick="ClosePopup();">
@@ -78,7 +79,7 @@
     <script>
         function ClosePopup() {
             let popup = document.getElementById("popup")
-            popup.classList.add("notshow")
+            popup.style.display = "none"
         }
     </script>
 
