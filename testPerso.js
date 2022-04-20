@@ -1,6 +1,3 @@
-// let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
-// data = await data.json()
-
 "use strict";
 Array.prototype.AlphaSort = function() {
     this.sort(function(a, b) {
@@ -15,60 +12,6 @@ Array.prototype.RaceSort = function() {
     this.sort(function(a, b) {
         if (b.appearance.race === null || a.appearance.race < b.appearance.race) return -1;
         if (a.appearance.race === null || a.appearance.race > b.appearance.race) return 1;
-        return 0;
-    })
-}
-
-"use strict";
-Array.prototype.PowerSortByInt = function() {
-    this.sort(function(a, b) {
-        if (a.powerstats.intelligence < b.powerstats.intelligence) return -1;
-        if (a.powerstats.intelligence > b.powerstats.intelligence) return 1;
-        return 0;
-    })
-}
-
-"use strict";
-Array.prototype.PowerSortByStr = function() {
-    this.sort(function(a, b) {
-        if (a.powerstats.strength < b.powerstats.strength) return -1;
-        if (a.powerstats.strength > b.powerstats.strength) return 1;
-        return 0;
-    })
-}
-
-"use strict";
-Array.prototype.PowerSortBySpe = function() {
-    this.sort(function(a, b) {
-        if (a.powerstats.speed < b.powerstats.speed) return -1;
-        if (a.powerstats.speed > b.powerstats.speed) return 1;
-        return 0;
-    })
-}
-
-"use strict";
-Array.prototype.PowerSortByDur = function() {
-    this.sort(function(a, b) {
-        if (a.powerstats.durability < b.powerstats.durability) return -1;
-        if (a.powerstats.durability > b.powerstats.durability) return 1;
-        return 0;
-    })
-}
-
-"use strict";
-Array.prototype.PowerSortByPow = function() {
-    this.sort(function(a, b) {
-        if (a.powerstats.power < b.powerstats.power) return -1;
-        if (a.powerstats.power > b.powerstats.power) return 1;
-        return 0;
-    })
-}
-
-"use strict";
-Array.prototype.PowerSortByCom = function() {
-    this.sort(function(a, b) {
-        if (a.powerstats.combat < b.powerstats.combat) return -1;
-        if (a.powerstats.combat > b.powerstats.combat) return 1;
         return 0;
     })
 }
@@ -172,7 +115,7 @@ async function GetData(id){
         //return await hero5.json()
         //return await hero6.json()
     } catch {
-        return {"name":"error"}
+        return {"intelligence": 0,"strength":0,"speed": 0,"durability": 0,"power": 0,"combat": 0}
     }
 }
 
@@ -192,14 +135,65 @@ export async function firstPage (nb=563) {
     return res
 }
 
-let test = await firstPage()
-console.log(test[0][1])
+"use strict";
+Array.prototype.PowerSortByInt = function() {
+    this.sort(function(a, b) {
+        if (a[1].intelligence > b[1].intelligence) return -1;
+        if (a[1].intelligence < b[1].intelligence) return 1;
+        return 0;
+    })
+}
 
 "use strict";
 Array.prototype.PowerSortByStr = function() {
     this.sort(function(a, b) {
-        if (a.powerstats.strength < b.powerstats.strength) return -1;
-        if (a.powerstats.strength > b.powerstats.strength) return 1;
+        if (a[1].strength > b[1].strength) return -1;
+        if (a[1].strength < b[1].strength) return 1;
         return 0;
     })
 }
+
+"use strict";
+Array.prototype.PowerSortBySpe = function() {
+    this.sort(function(a, b) {
+        if (a[1].speed > b[1].speed) return -1;
+        if (a[1].speed < b[1].speed) return 1;
+        return 0;
+    })
+}
+
+"use strict";
+Array.prototype.PowerSortByDur = function() {
+    this.sort(function(a, b) {
+        if (a[1].durability > b[1].durability) return -1;
+        if (a[1].durability < b[1].durability) return 1;
+        return 0;
+    })
+}
+
+"use strict";
+Array.prototype.PowerSortByPow = function() {
+    this.sort(function(a, b) {
+        if (a[1].power > b[1].power) return -1;
+        if (a[1].power < b[1].power) return 1;
+        return 0;
+    })
+}
+
+"use strict";
+Array.prototype.PowerSortByCom = function() {
+    this.sort(function(a, b) {
+        if (a[1].combat > b[1].combat) return -1;
+        if (a[1].combat < b[1].combat) return 1;
+        return 0;
+    })
+}
+
+let test = await firstPage()
+test.PowerSortByInt()
+test.PowerSortByStr()
+test.PowerSortByDur()
+test.PowerSortBySpe()
+test.PowerSortByPow()
+test.PowerSortByCom()
+console.log(test)
