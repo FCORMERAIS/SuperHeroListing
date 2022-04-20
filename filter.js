@@ -19,7 +19,12 @@ document.getElementById("Name").onclick = function NameAZ() {
 
 document.getElementById("Fname").onclick = function FullName() {
     data.FullNameSort()
-    
+    if ( precedf == "fullname" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "fullname"
+    }   
     GenerateTable(data)
 };
 
@@ -34,8 +39,10 @@ Array.prototype.AlphaSort = function() {
 
 Array.prototype.FullNameSort = function() {
     this.sort(function(a, b) {
-        if (b.biography.fullName === null || a.biography.fullName < b.biography.fullName) return -1;
-        if (a.biography.fullName === null || a.biography.fullName > b.biography.fullName) return 1;
+        if (b.biography.fullName === "" && a.biography.fullName !== "") return -1
+        if (a.biography.fullName === "" && b.biography.fullName !== "") return 1
+        if (b.biography.fullName === "" || a.biography.fullName < b.biography.fullName) return -1;
+        if (a.biography.fullName === "" || a.biography.fullName > b.biography.fullName) return 1;
         return 0;
     })
 }
