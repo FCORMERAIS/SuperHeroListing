@@ -12,9 +12,8 @@ export async function GenerateTable()  {
     for (let i = 0; i < listToPrint.length; i++) {
         const tr = document.createElement("tr")
         if (listToPrint[i].images.sm == "error") {
-            const td = document.createElement("td")
-            td.innerHTML = "ERROR : NOT FOUND"
-            tr.appendChild(td)
+            tr.innerHTML = "ERROR : NOT FOUND"
+            tr.style.textAlign = "center";
         }else {
             const tdImages = document.createElement("td")
             const img = document.createElement("img")
