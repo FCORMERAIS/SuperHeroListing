@@ -11,6 +11,11 @@ export async function GenerateTable()  {
     const tbody = document.createElement("tbody")
     for (let i = 0; i < listToPrint.length; i++) {
         const tr = document.createElement("tr")
+        if (listToPrint[i].images.sm == "error") {
+            const td = document.createElement("td")
+            td.innerHTML = "ERROR : NOT FOUND"
+            tr.appendChild(td)
+        }else {
             const tdImages = document.createElement("td")
             const img = document.createElement("img")
             img.src = listToPrint[i].images.sm
@@ -45,7 +50,7 @@ export async function GenerateTable()  {
             const tdAlignment = document.createElement("td")
             tdAlignment.innerHTML = listToPrint[i].biography.alignment
             tr.appendChild(tdAlignment)
-
+        }
         tbody.appendChild(tr)
     }
     let table = document.getElementById("table")
