@@ -1,3 +1,29 @@
+import { GenerateTable } from "./js.js";
+
+let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
+data = await data.json()
+
+
+var precedf = ""
+
+document.getElementById("Name").onclick = function NameAZ() {
+    data.AlphaSort()
+    if ( precedf == "name" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "name"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Fname").onclick = function FullName() {
+    data.FullNameSort()
+    
+    GenerateTable(data)
+};
+
+
 Array.prototype.AlphaSort = function() {
     this.sort(function(a, b) {
         if (a.name < b.name) return -1;
@@ -5,6 +31,15 @@ Array.prototype.AlphaSort = function() {
         return 0;
     })
 }
+
+Array.prototype.FullNameSort = function() {
+    this.sort(function(a, b) {
+        if (b.biography.fullName === null || a.biography.fullName < b.biography.fullName) return -1;
+        if (a.biography.fullName === null || a.biography.fullName > b.biography.fullName) return 1;
+        return 0;
+    })
+}
+
 Array.prototype.RaceSort = function() {
     this.sort(function(a, b) {
         if (b.appearance.race === null || a.appearance.race < b.appearance.race) return -1;
