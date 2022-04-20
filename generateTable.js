@@ -3,9 +3,10 @@ import * as search from './search.js';
 import * as pagination from './pagination.js';
 
 let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
-data = await data.json()
-export function GenerateTable(data)  {
-    let listToPrint = data
+data = await data.json() 
+
+export async function GenerateTable(data)  {
+    let listToPrint = await pagination.firstPage()
     let tbody = document.getElementById("tbody")
     tbody.replaceChildren()
     for (let i = 0; i < listToPrint.length; i++) {

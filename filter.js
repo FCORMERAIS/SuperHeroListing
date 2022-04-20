@@ -1,10 +1,8 @@
 "use strict";
-import { GenerateTable } from "./js.js";
+import { GenerateTable } from "./generateTable.js";
 
 let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
 data = await data.json()
-
-
 var precedf = ""
 
 document.getElementById("Name").onclick = function NameAZ() {

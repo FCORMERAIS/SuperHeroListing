@@ -21,7 +21,7 @@ async function GetData(id){
         var hero = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/id/'+id.toString()+'.json')
         return await hero.json()
     }catch{
-        return {"id": "error","name": "error","slug": "error","powerstats": {"intelligence": 0,"strength": 0,"speed": 0,"durability": 0,"power": 0,"combat": 0},"appearance": {"gender": "error","race": "error","height": "error","weight": "error","eyeColor": "error","hairColor": "error"},"biography": {"fullName": "error","alterEgos": "error","aliases": "error","placeOfBirth": "error","firstAppearance": "error","publisher": "error","alignment": "error"},"work": {"occupation": "error","base": "error"},"connections": {"groupAffiliation": "error","relatives": "error"},"images": {"xs": "error","sm": "error","md": "error","lg": "error"}}
+        return {"id": id,"name": "error","slug": "error","powerstats": {"intelligence": 0,"strength": 0,"speed": 0,"durability": 0,"power": 0,"combat": 0},"appearance": {"gender": "error","race": "error","height": "error","weight": "error","eyeColor": "error","hairColor": "error"},"biography": {"fullName": "error","alterEgos": "error","aliases": "error","placeOfBirth": "error","firstAppearance": "error","publisher": "error","alignment": "error"},"work": {"occupation": "error","base": "error"},"connections": {"groupAffiliation": "error","relatives": "error"},"images": {"xs": "error","sm": "error","md": "error","lg": "error"}}
     }
 }
 
