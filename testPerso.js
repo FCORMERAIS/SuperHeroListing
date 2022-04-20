@@ -1,3 +1,6 @@
+// let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
+// data = await data.json()
+
 "use strict";
 Array.prototype.AlphaSort = function() {
     this.sort(function(a, b) {
@@ -152,3 +155,42 @@ Array.prototype.sortingWeight = function () {
     // Si descending pressé : 
     // Array.prototype.reverse(this.sort(a, b));
 }
+
+// ------------------- //
+
+async function GetData(id){
+    try {
+        // var hero1 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/id/'+id.toString()+'.json')
+        var hero2 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/powerstats/'+id.toString()+'.json')
+        // var hero3 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/appearance/'+id.toString()+'.json')
+        //var hero4 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/biography/'+id.toString()+'.json')
+        //var hero5 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/connections/'+id.toString()+'.json')
+        //var hero6 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/images/'+id.toString()+'.json')
+        return await hero2.json()
+        //return await hero3.json()
+        //return await hero4.json()
+        //return await hero5.json()
+        //return await hero6.json()
+    } catch {
+        return {"name":"error"}
+    }
+}
+
+export async function firstPage (nb=563) {
+    let data = {}
+    let PromiseList = []
+    for (let i=0; i<nb; i++) {
+        PromiseList.push(GetData(i+1))
+    }
+    data = await Promise.all(PromiseList).then(function(values) {
+        return values
+    })  
+    let res = []
+    for (let index = 0; index < data.length; index++) {
+        res.push([index+1, data[index]])
+    }
+    return res
+}
+
+let miguel = await firstPage()
+console.log(miguel[0][1])
