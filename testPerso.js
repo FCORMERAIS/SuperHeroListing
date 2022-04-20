@@ -194,3 +194,12 @@ export async function firstPage (nb=563) {
 
 let miguel = await firstPage()
 console.log(miguel[0][1])
+
+"use strict";
+Array.prototype.PowerSortByStr = function() {
+    this.sort(function(a, b) {
+        if (a.powerstats.strength < b.powerstats.strength) return -1;
+        if (a.powerstats.strength > b.powerstats.strength) return 1;
+        return 0;
+    })
+}

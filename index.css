@@ -14,7 +14,6 @@ body {
     width: 100%;
 }
 
-
 /* tete de page */
 
 section.top-page {
@@ -129,11 +128,9 @@ tfoot {
 }
 
 /* select */
-
 .divselect {
     margin: 50px;
 }
-
 
 /* TAB */
 
@@ -179,6 +176,8 @@ tr:nth-child(even) {
     background-color: #e0e0e0;
 }
 
+/* Popup */
+
 #popup {
     position: fixed;
     top: 15%;
@@ -200,4 +199,12 @@ tr:nth-child(even) {
     border-radius: 1em;
     background-color: black;
     color: aliceblue;
+}
+
+.cat {
+    display: inline-block;
+    width: 24%;
+    height: 5em;
+    border: black;
+    border-radius: 1em;
 }
