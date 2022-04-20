@@ -192,8 +192,8 @@ export async function firstPage (nb=563) {
     return res
 }
 
-let miguel = await firstPage()
-console.log(miguel[0][1])
+let test = await firstPage()
+console.log(test[0][1])
 
 "use strict";
 Array.prototype.PowerSortByStr = function() {
