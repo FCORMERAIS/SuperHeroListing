@@ -28,6 +28,115 @@ document.getElementById("Fname").onclick = function FullName() {
     GenerateTable(data)
 };
 
+document.getElementById("Intell").onclick = function Int() {
+    data.PowerSortByInt()
+    if ( precedf == "intelligence" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "intelligence"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Str").onclick = function Strength() {
+    data.PowerSortByStr()
+    if ( precedf == "strength" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "strength"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Spe").onclick = function Speed() {
+    data.PowerSortBySpe()
+    if ( precedf == "speed" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "speed"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Dur").onclick = function Dur() {
+    data.PowerSortByDur()
+    if ( precedf == "durability" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "durability"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Pow").onclick = function Pow() {
+    data.PowerSortByPow()
+    if ( precedf == "power" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "power"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Com").onclick = function Com() {
+    data.PowerSortByCom()
+    if ( precedf == "combat" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "combat"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Race").onclick = function Race() {
+    data.RaceSort()
+    if ( precedf == "race" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "race"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Gen").onclick = function Gen() {
+    data.GenderSort()
+    if ( precedf == "gender" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "gender"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Hei").onclick = function Hei() {
+    data.HeightSort()
+    if ( precedf == "height" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "height"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Wei").onclick = function Wei() {
+    data.WeightSort()
+    if ( precedf == "weight" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "weight"
+    }
+    GenerateTable(data)
+};
 
 Array.prototype.AlphaSort = function() {
     this.sort(function(a, b) {
