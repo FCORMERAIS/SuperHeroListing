@@ -4,11 +4,10 @@ import * as pagination from './pagination.js';
 
 let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
 data = await data.json()
-
-export async function GenerateTable()  {
-    let listToPrint = await pagination.firstPage()
-    console.log(listToPrint)
-    const tbody = document.createElement("tbody")
+export function GenerateTable(data)  {
+    let listToPrint = data
+    let tbody = document.getElementById("tbody")
+    tbody.replaceChildren()
     for (let i = 0; i < listToPrint.length; i++) {
         const tr = document.createElement("tr")
         if (listToPrint[i].images.sm == "error") {
@@ -17,7 +16,7 @@ export async function GenerateTable()  {
         }else {
             const tdImages = document.createElement("td")
             const img = document.createElement("img")
-            img.src = listToPrint[i].images.sm
+            img.src = listToPrint[i].images.xs
             tdImages.appendChild(img)
             tr.appendChild(tdImages)
 
@@ -36,7 +35,7 @@ export async function GenerateTable()  {
             }
 
             const apparenceToShow = ["race", "gender", "height", "weight"]
-            for ( let apparence =0;apparence<4;apparence++ ) {
+            for ( let apparence = 0 ; apparence < 4 ; apparence++ ) {
                 const tdApparence = document.createElement("td")
                 tdApparence.innerHTML = listToPrint[i].appearance[apparenceToShow[apparence]]
                 tr.appendChild(tdApparence)
@@ -52,10 +51,8 @@ export async function GenerateTable()  {
         }
         tbody.appendChild(tr)
     }
-    let table = document.getElementById("table")
-    table.appendChild(tbody)
 }
-GenerateTable()
+GenerateTable(data)
 
 /* recuperer les données de tout la liste a afficher 
 cree autent de ligne que d'elem dans la list 

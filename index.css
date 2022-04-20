@@ -53,6 +53,10 @@ section.top-page {
     margin: 100px;
 }
 
+/* search */
+
+
+
 /* select */
 
 .divselect {
@@ -68,6 +72,7 @@ section.top-page {
 
 td {
     text-align: center;
+    padding: 10px;
 }
 
 .divtab {
