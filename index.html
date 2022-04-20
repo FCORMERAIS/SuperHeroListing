@@ -53,9 +53,18 @@
         </table>
     </div>
 
-    <div id="popup" class="notshow">
-        <div id="popupContenant" style="padding: 1em;"></div>
-        <div id="close" onclick="ClosePopup()">
+
+    <div id="popup" class="notshow" style="padding: 1em;">
+        <img id="PopupImg" style="display: inline-block;">
+        <div id="popupContenant " style="display: inline-block;">
+            <div id="categorie">
+                <div id="BiographyCat" class="cat">Biography</div>
+                <div id="AppearanceCat" class="cat">Appearance</div>
+                <div id="PowerstatsCat" class="cat">Powerstats</div>
+                <div id="OtherCat" class="cat">Other</div>
+            </div>
+        </div>
+        <div id="close" onclick="ClosePopup();">
             X
         </div>
     </div>
@@ -65,22 +74,6 @@
             popup.classList.add("notshow")
         }
     </script>
-
-    <section class="sectionart">
-        <h2 class="section-title">
-            Les Heros
-        </h2>
-        <div class="cards">
-            <div class="card">
-                <h2 class="card-title">nom du heros</h2>
-                <img src="./images/bg.png">
-                <p class="card-desc">
-                    <ul id="authors"></ul>
-                </p>
-            </div>
-        </div>
-
-    </section>
 
     <footer>
         <div class="logo-footer">

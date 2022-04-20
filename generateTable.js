@@ -1,6 +1,7 @@
 import * as filter from "./filter.js";
 import { search } from './search.js';
 import { pagin, page1, lastPage } from './pagination.js';
+import { ShowPopup } from './Popup.js';
 
 // let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
 // data = await data.json()
@@ -35,7 +36,7 @@ export async function GenerateTable() {
         }
 
         const apparenceToShow = ["race", "gender", "height", "weight"]
-        for (let apparence in apparenceToShow) {
+        for (let apparence = 0; apparence < 4; apparence++) {
             const tdApparence = document.createElement("td")
             tdApparence.innerHTML = listToPrint[i].appearance[apparenceToShow[apparence]]
             tr.appendChild(tdApparence)
@@ -71,15 +72,3 @@ GenerateTable()
     - Alignement (`.biography.alignment`)
 
     */
-
-export function ShowPopup(id) {
-    document.getElementById("popup").classList.remove("notshow")
-    let popup = document.getElementById("popupContenant")
-    let persoData = data[id]
-    popup.replaceChildren()
-
-    let img = document.createElement("img")
-    img.src = persoData.images.md
-    popup.appendChild(img)
-
-}
