@@ -127,6 +127,10 @@ tfoot {
     margin: 100px;
 }
 
+/* search */
+
+
+
 /* select */
 .divselect {
     margin: 50px;
@@ -141,6 +145,7 @@ tfoot {
 
 td {
     text-align: center;
+    padding: 10px;
 }
 
 .divtab {
