@@ -116,24 +116,46 @@ document.getElementById("Gen").onclick = function Gen() {
     GenerateTable(data)
 };
 
-document.getElementById("Hei").onclick = function Hei() {
-    data.HeightSort()
-    if ( precedf == "height" ) {
-        data.reverse()
-        precedf = ""
-    } else {
-        precedf = "height"
-    }
-    GenerateTable(data)
-};
+// document.getElementById("Hei").onclick = function Hei() {
+//     data.HeightSort()
+//     if ( precedf == "height" ) {
+//         data.reverse()
+//         precedf = ""
+//     } else {
+//         precedf = "height"
+//     }
+//     GenerateTable(data)
+// };
 
-document.getElementById("Wei").onclick = function Wei() {
-    data.WeightSort()
-    if ( precedf == "weight" ) {
+// document.getElementById("Wei").onclick = function Wei() {
+//     data.WeightSort()
+//     if ( precedf == "weight" ) {
+//         data.reverse()
+//         precedf = ""
+//     } else {
+//         precedf = "weight"
+//     }
+//     GenerateTable(data)
+// };
+
+// document.getElementById("Pofb").onclick = function Pofb() {
+//     data.PofbSort()
+//     if ( precedf == "placeOfBirth" ) {
+//         data.reverse()
+//         precedf = ""
+//     } else {
+//         precedf = "placeOfBirth"
+//     }
+//     GenerateTable(data)
+// };
+
+document.getElementById("Ali").onclick = function Ali() {
+    data.AlignmentSort()
+    if ( precedf == "alignment" ) {
         data.reverse()
         precedf = ""
     } else {
-        precedf = "weight"
+        precedf = "alignment"
     }
     GenerateTable(data)
 };
@@ -226,7 +248,7 @@ Array.prototype.HairColorSort = function() {
         return 0;
     })
 }
-Array.prototype.AlignementSort = function() {
+Array.prototype.AlignmentSort = function() {
     this.sort(function(a, b) {
         if (a.biography.alignment === '-' || a.biography.alignment < b.biography.alignment) return 1;
         if (b.biography.alignment === '-' || a.biography.alignment > b.biography.alignment) return -1;
