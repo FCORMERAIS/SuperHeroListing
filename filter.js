@@ -1,5 +1,5 @@
 "use strict";
-import { GenerateTable } from "./js.js";
+import { GenerateTable } from "./generateTable.js";
 
 let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
 data = await data.json()
@@ -9,7 +9,7 @@ var precedf = ""
 
 document.getElementById("Name").onclick = function NameAZ() {
     data.AlphaSort()
-    if ( precedf == "name" ) {
+    if (precedf == "name") {
         data.reverse()
         precedf = ""
     } else {
@@ -20,18 +20,18 @@ document.getElementById("Name").onclick = function NameAZ() {
 
 document.getElementById("Fname").onclick = function FullName() {
     data.FullNameSort()
-    if ( precedf == "fullname" ) {
+    if (precedf == "fullname") {
         data.reverse()
         precedf = ""
     } else {
         precedf = "fullname"
-    }   
+    }
     GenerateTable(data)
 };
 
 document.getElementById("Intell").onclick = function Int() {
     data.PowerSortByInt()
-    if ( precedf == "intelligence" ) {
+    if (precedf == "intelligence") {
         data.reverse()
         precedf = ""
     } else {
@@ -42,7 +42,7 @@ document.getElementById("Intell").onclick = function Int() {
 
 document.getElementById("Str").onclick = function Strength() {
     data.PowerSortByStr()
-    if ( precedf == "strength" ) {
+    if (precedf == "strength") {
         data.reverse()
         precedf = ""
     } else {
@@ -53,7 +53,7 @@ document.getElementById("Str").onclick = function Strength() {
 
 document.getElementById("Spe").onclick = function Speed() {
     data.PowerSortBySpe()
-    if ( precedf == "speed" ) {
+    if (precedf == "speed") {
         data.reverse()
         precedf = ""
     } else {
@@ -64,7 +64,7 @@ document.getElementById("Spe").onclick = function Speed() {
 
 document.getElementById("Dur").onclick = function Dur() {
     data.PowerSortByDur()
-    if ( precedf == "durability" ) {
+    if (precedf == "durability") {
         data.reverse()
         precedf = ""
     } else {
@@ -75,7 +75,7 @@ document.getElementById("Dur").onclick = function Dur() {
 
 document.getElementById("Pow").onclick = function Pow() {
     data.PowerSortByPow()
-    if ( precedf == "power" ) {
+    if (precedf == "power") {
         data.reverse()
         precedf = ""
     } else {
@@ -86,7 +86,7 @@ document.getElementById("Pow").onclick = function Pow() {
 
 document.getElementById("Com").onclick = function Com() {
     data.PowerSortByCom()
-    if ( precedf == "combat" ) {
+    if (precedf == "combat") {
         data.reverse()
         precedf = ""
     } else {
@@ -97,7 +97,7 @@ document.getElementById("Com").onclick = function Com() {
 
 document.getElementById("Race").onclick = function Race() {
     data.RaceSort()
-    if ( precedf == "race" ) {
+    if (precedf == "race") {
         data.reverse()
         precedf = ""
     } else {
@@ -108,7 +108,7 @@ document.getElementById("Race").onclick = function Race() {
 
 document.getElementById("Gen").onclick = function Gen() {
     data.GenderSort()
-    if ( precedf == "gender" ) {
+    if (precedf == "gender") {
         data.reverse()
         precedf = ""
     } else {
@@ -119,7 +119,7 @@ document.getElementById("Gen").onclick = function Gen() {
 
 document.getElementById("Hei").onclick = function Hei() {
     data.HeightSort()
-    if ( precedf == "height" ) {
+    if (precedf == "height") {
         data.reverse()
         precedf = ""
     } else {
@@ -130,7 +130,7 @@ document.getElementById("Hei").onclick = function Hei() {
 
 document.getElementById("Wei").onclick = function Wei() {
     data.WeightSort()
-    if ( precedf == "weight" ) {
+    if (precedf == "weight") {
         data.reverse()
         precedf = ""
     } else {

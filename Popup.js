@@ -14,21 +14,21 @@ export async function ShowPopup(id) {
 
     let Bio = document.getElementById("Biography")
     Bio.style.display = "block"
-    Bio.innerHTML = ""
+    Bio.innerHTML = "<br>"
     for (let data in persoData.biography) {
         Bio.innerHTML += data + " : " + persoData.biography[data] + "<br>"
     }
 
     let App = document.getElementById("Appearance")
     App.style.display = "none"
-    App.innerHTML = ""
+    App.innerHTML = "<br>"
     for (let data in persoData.appearance) {
         App.innerHTML += data + " : " + persoData.appearance[data] + "<br>"
     }
 
     let PSt = document.getElementById("Powerstats")
     PSt.style.display = "none"
-    PSt.innerHTML = ""
+    PSt.innerHTML = "<br>"
     for (let data in persoData.powerstats) {
         PSt.innerHTML += data + " : " + persoData.powerstats[data] + "<br>"
     }
@@ -36,9 +36,9 @@ export async function ShowPopup(id) {
 
     let Oth = document.getElementById("Other")
     Oth.style.display = "none"
-    Oth.innerHTML = ""
+    Oth.innerHTML = "<br>"
     for (let data in persoData.connections) {
-        Oth.innerHTML += data + " : " + persoData.connections[data] + "<br>"
+        Oth.innerHTML += data + " : " + persoData.connections[data] + "<br><br>"
     }
 
 
