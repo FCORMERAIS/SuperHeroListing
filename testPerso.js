@@ -1,69 +1,4 @@
 "use strict";
-Array.prototype.AlphaSort = function() {
-    this.sort(function(a, b) {
-        if (a.name < b.name) return -1;
-        if (a.name > b.name) return 1;
-        return 0;
-    })
-}
-
-"use strict";
-Array.prototype.RaceSort = function() {
-    this.sort(function(a, b) {
-        if (b.appearance.race === null || a.appearance.race < b.appearance.race) return -1;
-        if (a.appearance.race === null || a.appearance.race > b.appearance.race) return 1;
-        return 0;
-    })
-}
-
-"use strict";
-Array.prototype.GenderSort = function() {
-    this.sort(function(a, b) {
-        if (b.appearance.gender === "-" || a.appearance.gender < b.appearance.gender) return -1;
-        if (a.appearance.gender === "-" || a.appearance.gender > b.appearance.gender) return 1;
-        return 0;
-    })
-}
-
-"use strict";
-Array.prototype.EyeColorSort = function() {
-    this.sort(function(a, b) {
-        if (b.appearance.eyeColor === "-" || a.appearance.eyeColor < b.appearance.eyeColor) return -1;
-        if (a.appearance.eyeColor === "-" || a.appearance.eyeColor > b.appearance.eyeColor) return 1;
-        return 0;
-    })
-}
-
-"use strict";
-Array.prototype.HairColorSort = function() {
-    this.sort(function(a, b) {
-        if (b.appearance.hairColor === "-" || a.appearance.hairColor < b.appearance.hairColor) return -1;
-        if (a.appearance.hairColor === "-" || a.appearance.hairColor > b.appearance.hairColor) return 1;
-        return 0;
-    })
-}
-
-"use strict";
-Array.prototype.AlignementSort = function() {
-    this.sort(function(a, b) {
-        if (a.biography.alignment === '-' || a.biography.alignment < b.biography.alignment) return 1;
-        if (b.biography.alignment === '-' || a.biography.alignment > b.biography.alignment) return -1;
-        return 0;
-    })
-}
-
-"use strict";
-Array.prototype.PublisherSort = function() {
-    this.sort(function(a, b) {
-        if (b.biography.publisher == "" && a.biography.publisher !== null) return -1;
-        if (a.biography.publisher == "" && b.biography.publisher !== null) return 1;
-        if (b.biography.publisher == null || a.biography.publisher < b.biography.publisher) return -1;
-        if (a.biography.publisher == null || a.biography.publisher > b.biography.publisher) return 1;
-        return 0;
-    })
-}
-
-"use strict";
 Array.prototype.sortingHeight = function () { 
     this.sort(function(a, b) {
 
@@ -99,18 +34,17 @@ Array.prototype.sortingWeight = function () {
     // Array.prototype.reverse(this.sort(a, b));
 }
 
+
 // ------------------- //
 
-async function GetData(id){
+
+async function GetDataPowerstats(id){
     try {
-        // var hero1 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/id/'+id.toString()+'.json')
-        var hero2 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/powerstats/'+id.toString()+'.json')
-        // var hero3 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/appearance/'+id.toString()+'.json')
+        var hero = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/powerstats/'+id.toString()+'.json')
         //var hero4 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/biography/'+id.toString()+'.json')
         //var hero5 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/connections/'+id.toString()+'.json')
         //var hero6 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/images/'+id.toString()+'.json')
-        return await hero2.json()
-        //return await hero3.json()
+        return await hero.json()
         //return await hero4.json()
         //return await hero5.json()
         //return await hero6.json()
@@ -119,11 +53,11 @@ async function GetData(id){
     }
 }
 
-export async function firstPage (nb=563) {
+export async function firstPagePowerstats (nb=563) {
     let data = {}
     let PromiseList = []
     for (let i=0; i<nb; i++) {
-        PromiseList.push(GetData(i+1))
+        PromiseList.push(GetDataPowerstats(i+1))
     }
     data = await Promise.all(PromiseList).then(function(values) {
         return values
@@ -189,11 +123,92 @@ Array.prototype.PowerSortByCom = function() {
     })
 }
 
-let test = await firstPage()
-test.PowerSortByInt()
-test.PowerSortByStr()
-test.PowerSortByDur()
-test.PowerSortBySpe()
-test.PowerSortByPow()
-test.PowerSortByCom()
-console.log(test)
+// Generating Powerstats : 
+let generatePowerstats = await firstPagePowerstats()
+generatePowerstats.PowerSortByInt(), generatePowerstats.PowerSortByStr(), generatePowerstats.PowerSortByDur(), generatePowerstats.PowerSortBySpe(), generatePowerstats.PowerSortByPow(), generatePowerstats.PowerSortByCom()
+console.log(generatePowerstats)
+
+
+// -------------------- //
+
+
+async function GetDataAppearance(id){
+    try {
+        var hero2 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/appearance/'+id.toString()+'.json')
+        return await hero2.json()
+    } catch {
+        return {"intelligence": 0,"strength":0,"speed": 0,"durability": 0,"power": 0,"combat": 0}
+    }
+}
+
+export async function firstPageAppearance (nb=563) {
+    let data = {}
+    let PromiseList = []
+    for (let i=0; i<nb; i++) {
+        PromiseList.push(GetDataAppearance(i+1))
+    }
+    data = await Promise.all(PromiseList).then(function(values) {
+        return values
+    })  
+    let res = []
+    for (let index = 0; index < data.length; index++) {
+        res.push([index+1, data[index]])
+    }
+    return res
+}
+
+"use strict";
+Array.prototype.GenderSort = function() {
+    this.sort(function(a, b) {
+        if ((b[1].gender === "-") || (a[1].gender < b[1].gender)) return -1;
+        if ((a[1].gender === "-") || (a[1].gender > b[1].gender)) return 1;
+        return 0;
+    })
+}
+
+"use strict";
+Array.prototype.RaceSort = function() {
+    this.sort(function(a, b) {
+        if ((b[1].race === null) || (a[1].race < b[1].race)) return -1;
+        if ((a[1].race === null) || (a[1].race > b[1].race)) return 1;
+        return 0;
+    })
+}
+
+"use strict";
+Array.prototype.EyeColorSort = function() {
+    this.sort(function(a, b) {
+        if (b[1].eyeColor === "-" || a[1].eyeColor < b[1].eyeColor) return -1;
+        if (a[1].eyeColor === "-" || a[1].eyeColor > b[1].eyeColor) return 1;
+        return 0;
+    })
+}
+
+"use strict";
+Array.prototype.HairColorSort = function() {
+    this.sort(function(a, b) {
+        if ((b[1].hairColor === "-") || (a[1].hairColor < b[1].hairColor)) return -1;
+        if ((a[1].hairColor === "-") || (a[1].hairColor > b[1].hairColor)) return 1;
+        return 0;
+    })
+}
+
+"use strict";
+Array.prototype.PublisherSort = function() {
+    this.sort(function(a, b) {
+        if (b[1].publisher == "" && a[1].publisher !== null) return -1;
+        if (a[1].publisher == "" && b[1].publisher !== null) return 1;
+        if (b[1].publisher == null || a[1].publisher < b[1].publisher) return -1;
+        if (a[1].publisher == null || a[1].publisher > b[1].publisher) return 1;
+        return 0;
+    })
+}
+
+"use strict";
+Array.prototype.AlignementSort = function() {
+    this.sort(function(a, b) {
+        if ((a[1].alignment === '-') || (a[1].alignment < b[1].alignment === '-')) return 1;
+        if ((b[1].alignment === '-') || (a[1].alignment === '-' > b[1].alignment === '-')) return -1;
+        return 0;
+    })
+}
