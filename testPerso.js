@@ -41,13 +41,7 @@ Array.prototype.sortingWeight = function () {
 async function GetDataPowerstats(id){
     try {
         var hero = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/powerstats/'+id.toString()+'.json')
-        //var hero4 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/biography/'+id.toString()+'.json')
-        //var hero5 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/connections/'+id.toString()+'.json')
-        //var hero6 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/images/'+id.toString()+'.json')
         return await hero.json()
-        //return await hero4.json()
-        //return await hero5.json()
-        //return await hero6.json()
     } catch {
         return {"intelligence": 0,"strength":0,"speed": 0,"durability": 0,"power": 0,"combat": 0}
     }
@@ -137,7 +131,8 @@ async function GetDataAppearance(id){
         var hero2 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/appearance/'+id.toString()+'.json')
         return await hero2.json()
     } catch {
-        return {"intelligence": 0,"strength":0,"speed": 0,"durability": 0,"power": 0,"combat": 0}
+        return {"gender": "error","race": "error","height": 0,"weight": 0,"eyeColor": "error","hairColor": "error"
+          }
     }
 }
 
@@ -193,6 +188,41 @@ Array.prototype.HairColorSort = function() {
     })
 }
 
+// Generating Appearance : 
+let generateAppearance = await firstPageAppearance()
+generateAppearance.GenderSort(), generateAppearance.RaceSort(), generateAppearance.sortingHeight(), generateAppearance.sortingWeight(), generateAppearance.EyeColorSort(), generateAppearance.HairColorSort()
+console.log(generateAppearance)
+
+
+// -------------------- //
+
+
+async function GetDataBiography(id){
+    try {
+        var hero3 = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/biography/'+id.toString()+'.json')
+        return await hero3.json()
+    } catch {
+        return {"gender": "error","race": "error","height": 0,"weight": 0,"eyeColor": "error","hairColor": "error"
+          }
+    }
+}
+
+export async function firstPageBiography (nb=563) {
+    let data = {}
+    let PromiseList = []
+    for (let i=0; i<nb; i++) {
+        PromiseList.push(GetDataBiography(i+1))
+    }
+    data = await Promise.all(PromiseList).then(function(values) {
+        return values
+    })  
+    let res = []
+    for (let index = 0; index < data.length; index++) {
+        res.push([index+1, data[index]])
+    }
+    return res
+}
+
 "use strict";
 Array.prototype.PublisherSort = function() {
     this.sort(function(a, b) {
@@ -212,3 +242,8 @@ Array.prototype.AlignementSort = function() {
         return 0;
     })
 }
+
+// Generating Biography : 
+let generateBiography = await firstPageBiography()
+generateBiography.PublisherSort(), generateBiography.AlignementSort()
+console.log(generateBiography)
