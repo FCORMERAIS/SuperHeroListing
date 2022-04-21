@@ -110,12 +110,13 @@ tfoot {
 
 /* title */
 
-margin: 50px;
-font-size: 50px;
-font-weight: 100;
-position: relative;
-
+.section-title {
+    margin: 50px;
+    font-size: 50px;
+    font-weight: 100;
+    position: relative;
 }
+
 .section-title::before {
     content: "";
     position: absolute;
@@ -124,40 +125,52 @@ position: relative;
     height: 7px;
     bottom: 0;
 }
+
 .sectionart {
     margin: 100px;
 }
 
+
 /* search */
 
+
 /* select */
+
 .divselect {
     margin: 50px;
 }
 
+
 /* TAB */
+
 .button {
     color: white;
     padding: 5px;
 }
+
 td {
     text-align: center;
     padding: 10px;
 }
+
 .divtab {
     margin: 10px;
 }
+
 table,
 td {
     border: 1px solid black;
 }
+
 thead,
 tfoot {
     background-color: black;
     color: black;
 }
 
+
 /* pied de page */
+
 footer {
     padding: 15px;
     display: flex;
@@ -166,13 +179,17 @@ footer {
     justify-content: center;
     align-items: center;
     font-weight: bolder;
-    <<<<<<< HEAD font-family: 'Varela Round', sans-serif;
+    font-family: 'Varela Round', sans-serif;
+    font-family: 'Varela Round', sans-serif;
 }
+
 tr:nth-child(even) {
     background-color: #e0e0e0;
 }
 
+
 /* Popup */
+
 #popup {
     position: fixed;
     top: 15%;
@@ -187,6 +204,7 @@ tr:nth-child(even) {
     border-radius: 5px;
     box-shadow: 0px 0px 5px 5px black;
 }
+
 #close {
     position: absolute;
     top: 0.5em;
@@ -200,6 +218,7 @@ tr:nth-child(even) {
     text-align: center;
     z-index: 9999;
 }
+
 .cat {
     display: inline-block;
     width: 24%;
@@ -210,18 +229,21 @@ tr:nth-child(even) {
     text-align: center;
     padding-top: 1.3em;
 }
+
 #popupContenant {
     z-index: 2;
     width: 30em;
     overflow: hidden;
     padding-left: 1em;
 }
+
 .PopupInfo {
     color: azure;
     padding: 0.5em;
     text-align: center;
     line-height: 2em;
 }
+
 #tape {
     height: calc(4em - 1px);
     position: fixed;

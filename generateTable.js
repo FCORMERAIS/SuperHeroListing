@@ -63,14 +63,15 @@ export async function GenerateTable(data) {
             tbody.appendChild(tr)
         }
     }
+    let table = document.getElementById("table")
+    table.appendChild(tbody)
 }
 GenerateTable()
     /* recuperer les données de tout la liste a afficher 
     cree autent de ligne que d'elem dans la list 
     affiche les elem dans la ligne
 =======
-GenerateTable(data)
->>>>>>> debbf437f7c203d4b60928a7e4878cdd4f5f4b64
+>>>>>>> a5f305ca8f91a50d70c6f371e11e3a0f57db4a77
 
     - Icon (`.images.xs`, should be displayed as images and not as a string)
     - Name (`.name`)

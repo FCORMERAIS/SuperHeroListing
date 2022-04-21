@@ -156,6 +156,7 @@ Array.prototype.FullNameSort = function() {
     })
 }
 
+"use strict";
 Array.prototype.RaceSort = function() {
     this.sort(function(a, b) {
         if (b.appearance.race === null || a.appearance.race < b.appearance.race) return -1;
@@ -181,6 +182,7 @@ Array.prototype.PowerSortByStr = function() {
         return 0;
     })
 }
+
 "use strict";
 Array.prototype.PowerSortBySpe = function() {
     this.sort(function(a, b) {
@@ -262,4 +264,40 @@ Array.prototype.PublisherSort = function() {
         if (a.biography.publisher == null || a.biography.publisher > b.biography.publisher) return 1;
         return 0;
     })
+}
+
+"use strict";
+Array.prototype.sortingHeight = function() {
+    this.sort(function(a, b) {
+
+        // Spliting the first value and decomposing the list into a string :
+        a = parseInt(data.appearance.height[1].split(" ")[0]);
+        b = parseInt(data.appearance.height[1].split(" ")[0]);
+
+        // Sorting values in ascending order :
+        if (a < b) return -1;
+        if (a > b) return 1;
+        return 0;
+    })
+
+    // Si descending pressé : 
+    // Array.prototype.reverse(this.sort(a, b));
+}
+
+"use strict";
+Array.prototype.sortingWeight = function() {
+    this.sort(function(a, b) {
+
+        // Spliting the first value and decomposing the list into a string :
+        a = parseInt(data.appearance.weight[1].split(" ")[0]);
+        b = parseInt(data.appearance.weight[1].split(" ")[0]);
+
+        // Sorting values in ascending order :
+        if (a < b) return -1;
+        if (a > b) return 1;
+        return 0;
+    })
+
+    // Si descending pressé : 
+    // Array.prototype.reverse(this.sort(a, b));
 }
