@@ -1,4 +1,144 @@
 "use strict";
+import { GenerateTable } from "./js.js";
+
+let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
+data = await data.json()
+
+
+var precedf = ""
+
+document.getElementById("Name").onclick = function NameAZ() {
+    data.AlphaSort()
+    if ( precedf == "name" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "name"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Fname").onclick = function FullName() {
+    data.FullNameSort()
+    if ( precedf == "fullname" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "fullname"
+    }   
+    GenerateTable(data)
+};
+
+document.getElementById("Intell").onclick = function Int() {
+    data.PowerSortByInt()
+    if ( precedf == "intelligence" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "intelligence"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Str").onclick = function Strength() {
+    data.PowerSortByStr()
+    if ( precedf == "strength" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "strength"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Spe").onclick = function Speed() {
+    data.PowerSortBySpe()
+    if ( precedf == "speed" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "speed"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Dur").onclick = function Dur() {
+    data.PowerSortByDur()
+    if ( precedf == "durability" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "durability"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Pow").onclick = function Pow() {
+    data.PowerSortByPow()
+    if ( precedf == "power" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "power"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Com").onclick = function Com() {
+    data.PowerSortByCom()
+    if ( precedf == "combat" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "combat"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Race").onclick = function Race() {
+    data.RaceSort()
+    if ( precedf == "race" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "race"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Gen").onclick = function Gen() {
+    data.GenderSort()
+    if ( precedf == "gender" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "gender"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Hei").onclick = function Hei() {
+    data.HeightSort()
+    if ( precedf == "height" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "height"
+    }
+    GenerateTable(data)
+};
+
+document.getElementById("Wei").onclick = function Wei() {
+    data.WeightSort()
+    if ( precedf == "weight" ) {
+        data.reverse()
+        precedf = ""
+    } else {
+        precedf = "weight"
+    }
+    GenerateTable(data)
+};
+
 Array.prototype.AlphaSort = function() {
     this.sort(function(a, b) {
         if (a.name < b.name) return -1;
@@ -8,6 +148,16 @@ Array.prototype.AlphaSort = function() {
 }
 
 "use strict";
+Array.prototype.FullNameSort = function() {
+    this.sort(function(a, b) {
+        if (b.biography.fullName === "" && a.biography.fullName !== "") return -1
+        if (a.biography.fullName === "" && b.biography.fullName !== "") return 1
+        if (b.biography.fullName === "" || a.biography.fullName < b.biography.fullName) return -1;
+        if (a.biography.fullName === "" || a.biography.fullName > b.biography.fullName) return 1;
+        return 0;
+    })
+}
+
 Array.prototype.RaceSort = function() {
     this.sort(function(a, b) {
         if (b.appearance.race === null || a.appearance.race < b.appearance.race) return -1;

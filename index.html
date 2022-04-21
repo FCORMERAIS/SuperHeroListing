@@ -8,24 +8,18 @@
     <title>JS-Project</title>
     <link rel="shortcut icon" href="images/js.jpg">
     <link rel="stylesheet" href="index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 
 
 <script type="module" src="generateTable.js"></script>
+<script type="module" src="filter.js"></script>
 
 
 <body>
-    <script type="module" src="js.js"></script>
+    <script type="module" src="generateTable.js"></script>
     <section class="top-page">
         <div class="landing-page">
             <h1>JS-Project</h1>
@@ -43,16 +37,46 @@
             </select>
     </div>
 
-    <div>
+    <div class="divselect">
+        <label>Number of display :</label>
+        <select name="afficher" id="nbtDisplay">
+        <option value="">10</option>
+        <option value="" selected>20</option>
+        <option value="">50</option>
+        <option value="">100</option>
+        <option value="">all results</option>
+    </select>
+        <br><br>
+        <label>Tap to :</label>
+        <input class="divsearch" type="input" class="" placeholder="Search" required/>
+    </div>
+
+    <div class="divtab">
         <table id="table">
             <thead>
                 <tr>
-                    <th colspan="500">Heros</th>
+                    <th class="button">Trier par : </th>
+                    <th class="button"><button type="button" id="Name" onClick="NameAZ();">Name</button></th>
+                    <th class="button"><button type="button" id="Fname" onClick="FullName();">Full Name</th>
+                <th class="button"><button type="button" id="Intell" onClick="Int();">Int</button></th>
+                    <th class="button"><button type="button" id="Str" onClick="Strength();">Str</button></th>
+                    <th class="button"><button type="button" id="Spe" onClick="Speed();">Spe</button></th>
+                    <th class="button"><button type="button" id="Dur" onClick="Dur();">Dur</button></th>
+                    <th class="button"><button type="button" id="Pow" onClick="Pow();">Pow</button></th>
+                    <th class="button"><button type="button" id="Com" onClick="Com();">Com</button></th>
+                    <th class="button"><button type="button" id="Race" onClick="Race();">Race</button></th>
+                    <th class="button"><button type="button" id="Gen" onClick="Gen();">Gender</button></th>
+                    <th class="button"><button type="button" id="Hei" onClick="Hei();">Height</button></th>
+                    <th class="button"><button type="button" id="Wei" onClick="Wei();">Weight</button></th>
+                    <th class="button"><button type="button" id="" onClick="">Place of Birth</button></th>
+                    <th class="button"><button type="button" id="" onClick="">Alignment</button></th>
                 </tr>
             </thead>
+            <tbody id="tbody">
+                <script type="module" src="generateTable.js"></script>
+            </tbody>
         </table>
     </div>
-
 
     <div id="popup" class="notshow">
         <img id="PopupImg" style="z-index: 2">
@@ -75,13 +99,13 @@
         <div id="close" onclick="ClosePopup();">
             X
         </div>
+        <script>
+            function ClosePopup() {
+                let popup = document.getElementById("popup")
+                popup.style.display = "none"
+            }
+        </script>
     </div>
-    <script>
-        function ClosePopup() {
-            let popup = document.getElementById("popup")
-            popup.style.display = "none"
-        }
-    </script>
 
     <footer>
         <div class="logo-footer">

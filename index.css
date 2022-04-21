@@ -128,6 +128,10 @@ position: relative;
     margin: 100px;
 }
 
+/* search */
+
+
+
 /* select */
 .divselect {
     margin: 50px;
@@ -140,6 +144,7 @@ position: relative;
 }
 td {
     text-align: center;
+    padding: 10px;
 }
 .divtab {
     margin: 10px;
