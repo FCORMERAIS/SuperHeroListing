@@ -7,11 +7,11 @@ async function GetData(id){
     }
 }
 
-export async function firstPage (nb=50) {
+export async function Page (nb=50,id = 0) {
     let data = {}
     let PromiseList = []
     for (let i=1; i<=nb; i++) {
-        PromiseList.push(GetData(i))
+        PromiseList.push(GetData(i+id))
     }
     data = await Promise.all(PromiseList).then(function(values) {
         return values

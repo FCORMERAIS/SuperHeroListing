@@ -6,7 +6,7 @@ let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/ap
 data = await data.json() 
 
 export async function GenerateTable(data)  {
-    let listToPrint = await pagination.firstPage()
+    let listToPrint = await pagination.Page()
     let tbody = document.getElementById("tbody")
     tbody.replaceChildren()
     for (let i = 0; i < listToPrint.length; i++) {
@@ -54,7 +54,10 @@ export async function GenerateTable(data)  {
     }
 }
 GenerateTable(data)
-
+let nb = 100
+let nbpage = 0
+var page =[await pagination.Page(nb),await pagination.Page(nb,nb*(nbpage-1)),await pagination.Page(nb,nb*(nbpage)),await pagination.Page(nb,(nbpage+1)*nb),await pagination.Page(nb,731-nb)]
+console.log(page)   
 /* recuperer les données de tout la liste a afficher 
 cree autent de ligne que d'elem dans la list 
 affiche les elem dans la ligne
