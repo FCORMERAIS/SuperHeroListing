@@ -76,9 +76,24 @@ section.top-page {
 
 /* TAB */
 
-.button {
+.ligne {
     color: white;
     padding: 5px;
+}
+
+.btn {
+    padding: 5px 15px;
+    background: white;
+    color: black;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+    border: 2px solid black;
+}
+
+.btn:hover {
+    background: grey;
+    color: yellow;
 }
 
 td {
