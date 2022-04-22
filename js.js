@@ -1,46 +1,46 @@
 let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
 data = await data.json()
-export function GenerateTable(data)  {
+export function GenerateTable(data) {
     let listToPrint = data
     let tbody = document.getElementById("tbody")
     tbody.replaceChildren()
     for (let i = 0; i < listToPrint.length; i++) {
         const tr = document.createElement("tr")
-        
-            const tdImages = document.createElement("td")
-            const img = document.createElement("img")
-            img.src = listToPrint[i].images.xs
-            tdImages.appendChild(img)
-            tr.appendChild(tdImages)
 
-            const tdname = document.createElement("td")
-            tdname.innerHTML = listToPrint[i].name
-            tr.appendChild(tdname)
+        const tdImages = document.createElement("td")
+        const img = document.createElement("img")
+        img.src = listToPrint[i].images.xs
+        tdImages.appendChild(img)
+        tr.appendChild(tdImages)
 
-            const tdFullName = document.createElement("td")
-            tdFullName.innerHTML = listToPrint[i].biography.fullName
-            tr.appendChild(tdFullName)
+        const tdname = document.createElement("td")
+        tdname.innerHTML = listToPrint[i].name
+        tr.appendChild(tdname)
 
-            for (let powerstats in listToPrint[i].powerstats) {
-                const tdpowerstats = document.createElement("td")
-                tdpowerstats.innerHTML = listToPrint[i].powerstats[powerstats]
-                tr.appendChild(tdpowerstats)
-            }
+        const tdFullName = document.createElement("td")
+        tdFullName.innerHTML = listToPrint[i].biography.fullName
+        tr.appendChild(tdFullName)
 
-            const apparenceToShow = ["race", "gender", "height", "weight"]
-            for ( let apparence = 0 ; apparence < 4 ; apparence++ ) {
-                const tdApparence = document.createElement("td")
-                tdApparence.innerHTML = listToPrint[i].appearance[apparenceToShow[apparence]]
-                tr.appendChild(tdApparence)
-            }
+        for (let powerstats in listToPrint[i].powerstats) {
+            const tdpowerstats = document.createElement("td")
+            tdpowerstats.innerHTML = listToPrint[i].powerstats[powerstats]
+            tr.appendChild(tdpowerstats)
+        }
 
-            const tdpOfBirth = document.createElement("td")
-            tdpOfBirth.innerHTML = listToPrint[i].biography.placeOfBirth
-            tr.appendChild(tdpOfBirth)
+        const apparenceToShow = ["race", "gender", "height", "weight"]
+        for (let apparence = 0; apparence < 4; apparence++) {
+            const tdApparence = document.createElement("td")
+            tdApparence.innerHTML = listToPrint[i].appearance[apparenceToShow[apparence]]
+            tr.appendChild(tdApparence)
+        }
 
-            const tdAlignment = document.createElement("td")
-            tdAlignment.innerHTML = listToPrint[i].biography.alignment
-            tr.appendChild(tdAlignment)
+        const tdpOfBirth = document.createElement("td")
+        tdpOfBirth.innerHTML = listToPrint[i].biography.placeOfBirth
+        tr.appendChild(tdpOfBirth)
+
+        const tdAlignment = document.createElement("td")
+        tdAlignment.innerHTML = listToPrint[i].biography.alignment
+        tr.appendChild(tdAlignment)
 
         tbody.appendChild(tr)
     }
