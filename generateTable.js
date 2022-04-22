@@ -2,6 +2,9 @@ import * as filter from "./filter.js";
 import * as search from './search.js';
 import * as pagination from './pagination.js';
 
+let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
+data = await data.json() 
+
 document.getElementById('nbtDisplay').addEventListener('change', function() {
     var liste, nb
     liste = document.getElementById("nbtDisplay")
