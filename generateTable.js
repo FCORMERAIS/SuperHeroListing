@@ -2,11 +2,19 @@ import * as filter from "./filter.js";
 import * as search from './search.js';
 import * as pagination from './pagination.js';
 
-let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
-data = await data.json() 
+document.getElementById('nbtDisplay').addEventListener('change', function() {
+    var liste, nb
+    liste = document.getElementById("nbtDisplay")
+    nb = liste.options[liste.selectedIndex].text
+    if (nb == "all results") {
+        GenerateTable(731)
+    }else {
+        GenerateTable(nb)
+    }
+})
 
-export async function GenerateTable(data)  {
-    let listToPrint = await pagination.Page()
+export async function GenerateTable(nb)  {
+    let listToPrint = await pagination.Page(nb)
     let tbody = document.getElementById("tbody")
     tbody.replaceChildren()
     for (let i = 0; i < listToPrint.length; i++) {
@@ -52,16 +60,12 @@ export async function GenerateTable(data)  {
         }
         tbody.appendChild(tr)
     }
-}
-GenerateTable(data)
-let nb = 100
-let nbpage = 0
-var page =[await pagination.Page(nb),await pagination.Page(nb,nb*(nbpage-1)),await pagination.Page(nb,nb*(nbpage)),await pagination.Page(nb,(nbpage+1)*nb),await pagination.Page(731%nb,731-(731%nb))]
-console.log(page)
+}   
+GenerateTable(20)
+
 /* recuperer les données de tout la liste a afficher 
 cree autent de ligne que d'elem dans la list 
 affiche les elem dans la ligne
-
 - Icon (`.images.xs`, should be displayed as images and not as a string)
 - Name (`.name`)
 - Full Name (`.biography.fullName`)
@@ -72,5 +76,4 @@ affiche les elem dans la ligne
 - Weight (`.appearance.weight`)
 - Place Of Birth (`.biography.placeOfBirth`)
 - Alignement (`.biography.alignment`)
-
 */
