@@ -56,8 +56,8 @@ export async function GenerateTable(data)  {
 GenerateTable(data)
 let nb = 100
 let nbpage = 0
-var page =[await pagination.Page(nb),await pagination.Page(nb,nb*(nbpage-1)),await pagination.Page(nb,nb*(nbpage)),await pagination.Page(nb,(nbpage+1)*nb),await pagination.Page(nb,731-nb)]
-console.log(page)   
+var page =[await pagination.Page(nb),await pagination.Page(nb,nb*(nbpage-1)),await pagination.Page(nb,nb*(nbpage)),await pagination.Page(nb,(nbpage+1)*nb),await pagination.Page(731%nb,731-(731%nb))]
+console.log(page)
 /* recuperer les données de tout la liste a afficher 
 cree autent de ligne que d'elem dans la list 
 affiche les elem dans la ligne
