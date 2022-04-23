@@ -10,7 +10,7 @@ document.getElementById('nbtDisplay').addEventListener('change', function() {
     liste = document.getElementById("nbtDisplay")
     nb = liste.options[liste.selectedIndex].text
     if (nb == "all results") {
-        GenerateTable(731)
+        GenerateTable(563)
     }else {
         GenerateTable(nb)
     }
@@ -22,45 +22,40 @@ export async function GenerateTable(nb)  {
     tbody.replaceChildren()
     for (let i = 0; i < listToPrint.length; i++) {
         const tr = document.createElement("tr")
-        if (listToPrint[i].images.sm == "error") {
-            tr.innerHTML = "ERROR : NOT FOUND"
-            tr.style.textAlign = "center";
-        }else {
-            const tdImages = document.createElement("td")
-            const img = document.createElement("img")
-            img.src = listToPrint[i].images.xs
-            tdImages.appendChild(img)
-            tr.appendChild(tdImages)
+        const tdImages = document.createElement("td")
+        const img = document.createElement("img")
+        img.src = listToPrint[i].images.xs
+        tdImages.appendChild(img)
+        tr.appendChild(tdImages)
 
-            const tdname = document.createElement("td")
-            tdname.innerHTML = listToPrint[i].name
-            tr.appendChild(tdname)
+        const tdname = document.createElement("td")
+        tdname.innerHTML = listToPrint[i].name
+        tr.appendChild(tdname)
 
-            const tdFullName = document.createElement("td")
-            tdFullName.innerHTML = listToPrint[i].biography.fullName
-            tr.appendChild(tdFullName)
+        const tdFullName = document.createElement("td")
+        tdFullName.innerHTML = listToPrint[i].biography.fullName
+        tr.appendChild(tdFullName)
 
-            for (let powerstats in listToPrint[i].powerstats) {
-                const tdpowerstats = document.createElement("td")
-                tdpowerstats.innerHTML = listToPrint[i].powerstats[powerstats]
-                tr.appendChild(tdpowerstats)
-            }
-
-            const apparenceToShow = ["race", "gender", "height", "weight"]
-            for ( let apparence = 0 ; apparence < 4 ; apparence++ ) {
-                const tdApparence = document.createElement("td")
-                tdApparence.innerHTML = listToPrint[i].appearance[apparenceToShow[apparence]]
-                tr.appendChild(tdApparence)
-            }
-
-            const tdpOfBirth = document.createElement("td")
-            tdpOfBirth.innerHTML = listToPrint[i].biography.placeOfBirth
-            tr.appendChild(tdpOfBirth)
-
-            const tdAlignment = document.createElement("td")
-            tdAlignment.innerHTML = listToPrint[i].biography.alignment
-            tr.appendChild(tdAlignment)
+        for (let powerstats in listToPrint[i].powerstats) {
+            const tdpowerstats = document.createElement("td")
+            tdpowerstats.innerHTML = listToPrint[i].powerstats[powerstats]
+            tr.appendChild(tdpowerstats)
         }
+
+        const apparenceToShow = ["race", "gender", "height", "weight"]
+        for ( let apparence = 0 ; apparence < 4 ; apparence++ ) {
+            const tdApparence = document.createElement("td")
+            tdApparence.innerHTML = listToPrint[i].appearance[apparenceToShow[apparence]]
+            tr.appendChild(tdApparence)
+        }
+
+        const tdpOfBirth = document.createElement("td")
+        tdpOfBirth.innerHTML = listToPrint[i].biography.placeOfBirth
+        tr.appendChild(tdpOfBirth)
+
+        const tdAlignment = document.createElement("td")
+        tdAlignment.innerHTML = listToPrint[i].biography.alignment
+        tr.appendChild(tdAlignment)
         tbody.appendChild(tr)
     }
 }   
