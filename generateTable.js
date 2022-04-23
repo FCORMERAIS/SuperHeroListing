@@ -2,64 +2,61 @@ import * as filter from "./filter.js";
 import * as search from './search.js';
 import * as pagination from './pagination.js';
 
-let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
-data = await data.json() 
 
-document.getElementById('nbtDisplay').addEventListener('change', function() {
+document.getElementById('nbtDisplay').addEventListener('change', async function() {
     var liste, nb
     liste = document.getElementById("nbtDisplay")
     nb = liste.options[liste.selectedIndex].text
     if (nb == "all results") {
-        GenerateTable(563)
+        GenerateTable(await pagination.Page(563))
     }else {
-        GenerateTable(nb)
+        GenerateTable(await pagination.Page(nb))
     }
 })
 
-export async function GenerateTable(nb)  {
-    let listToPrint = await pagination.Page(nb)
+export async function GenerateTable(data)  {
     let tbody = document.getElementById("tbody")
     tbody.replaceChildren()
-    for (let i = 0; i < listToPrint.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         const tr = document.createElement("tr")
         const tdImages = document.createElement("td")
         const img = document.createElement("img")
-        img.src = listToPrint[i].images.xs
+        img.src = data[i].images.xs
         tdImages.appendChild(img)
         tr.appendChild(tdImages)
 
         const tdname = document.createElement("td")
-        tdname.innerHTML = listToPrint[i].name
+        tdname.innerHTML = data[i].name
         tr.appendChild(tdname)
 
         const tdFullName = document.createElement("td")
-        tdFullName.innerHTML = listToPrint[i].biography.fullName
+        tdFullName.innerHTML = data[i].biography.fullName
         tr.appendChild(tdFullName)
 
-        for (let powerstats in listToPrint[i].powerstats) {
+        for (let powerstats in data[i].powerstats) {
             const tdpowerstats = document.createElement("td")
-            tdpowerstats.innerHTML = listToPrint[i].powerstats[powerstats]
+            tdpowerstats.innerHTML = data[i].powerstats[powerstats]
             tr.appendChild(tdpowerstats)
         }
 
         const apparenceToShow = ["race", "gender", "height", "weight"]
         for ( let apparence = 0 ; apparence < 4 ; apparence++ ) {
             const tdApparence = document.createElement("td")
-            tdApparence.innerHTML = listToPrint[i].appearance[apparenceToShow[apparence]]
+            tdApparence.innerHTML = data[i].appearance[apparenceToShow[apparence]]
             tr.appendChild(tdApparence)
         }
 
         const tdpOfBirth = document.createElement("td")
-        tdpOfBirth.innerHTML = listToPrint[i].biography.placeOfBirth
+        tdpOfBirth.innerHTML = data[i].biography.placeOfBirth
         tr.appendChild(tdpOfBirth)
 
         const tdAlignment = document.createElement("td")
-        tdAlignment.innerHTML = listToPrint[i].biography.alignment
+        tdAlignment.innerHTML = data[i].biography.alignment
         tr.appendChild(tdAlignment)
         tbody.appendChild(tr)
     }
 }   
-GenerateTable(20)
+GenerateTable(await pagination.Page(20))
 
 /* recuperer les données de tout la liste a afficher 
 cree autent de ligne que d'elem dans la list 

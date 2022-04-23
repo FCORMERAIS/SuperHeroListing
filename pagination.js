@@ -29,7 +29,6 @@ export async function Page (nb=50,id = 0) {
                 res.push(data[index])
             }
         }
-        console.log(res.length)
     }
     return res
 }
