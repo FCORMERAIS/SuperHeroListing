@@ -1,6 +1,8 @@
 "use strict";
-export function search(user_search,data) {
+export async function search(user_search) {
     let res = []
+    let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
+    data = await data.json()
     for (let index = 0; index < data.length; index++) {
         let tempo = [data[index].name, data[index].biography.fullName]
         data[index].biography.aliases.forEach(element => {

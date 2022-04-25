@@ -2,6 +2,7 @@ import * as filter from "./filter.js";
 import * as search from './search.js';
 import * as pagination from './pagination.js';
 
+let page = 1
 
 document.getElementById('nbtDisplay').addEventListener('change', async function() {
     var liste, nb
@@ -10,8 +11,30 @@ document.getElementById('nbtDisplay').addEventListener('change', async function(
     if (nb == "all results") {
         GenerateTable(await pagination.Page(563))
     }else {
+        console.log(731/nb)
         GenerateTable(await pagination.Page(nb))
     }
+})
+
+document.getElementById("firstPage").addEventListener('click', function(){
+    page = 1 
+})
+
+document.getElementById("searchfunction").addEventListener('change', async function(){
+    var input = document.getElementById("searchfunction").value
+    GenerateTable(await search.search(input))
+})
+
+document.getElementById("previousPage").addEventListener('click', function(){
+    console.log("previousPage")    
+})
+
+document.getElementById("nextPage").addEventListener('click', function(){
+    console.log("nextpage")
+})
+
+document.getElementById("lastPage").addEventListener('click', function() {
+
 })
 
 export async function GenerateTable(data)  {
