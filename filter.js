@@ -44,10 +44,6 @@ export async function filterByAppearance(cat) {
         data.sortingHeight(isReverse)
     } else if (cat === "weight") {
         data.sortingWeight(isReverse)
-    } else if (cat === "eyeColor") {
-        data.EyeColorSort(isReverse)
-    } else if (cat === "hairColor") {
-        data.HairColorSort(isReverse)
     }
     let listId = []
     for (let i = 0; i < data.length; i++) {

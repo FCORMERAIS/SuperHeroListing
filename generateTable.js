@@ -6,41 +6,54 @@ import { ShowPopup } from './Popup.js';
 import * as pagination from './pagination.js';
 let page = 1
 
-let buttonfilter = document.querySelectorAll("")
+document.getElementById("Name").onclick = async function() { console.log("PlaceHolder") }
+document.getElementById("Fname").onclick = async function() { await filter.filterByBiography("fullName") }
+document.getElementById("Int").onclick = async function() { await filter.filterByPowerstat("Int") }
+document.getElementById("Str").onclick = async function() { await filter.filterByPowerstat("Str") }
+document.getElementById("Spe").onclick = async function() { await filter.filterByPowerstat("Spe") }
+document.getElementById("Dur").onclick = async function() { await filter.filterByPowerstat("Dur") }
+document.getElementById("Pow").onclick = async function() { await filter.filterByPowerstat("Pow") }
+document.getElementById("Com").onclick = async function() { await filter.filterByPowerstat("Com") }
+document.getElementById("Race").onclick = async function() { await filter.filterByAppearance("race") }
+document.getElementById("Gen").onclick = async function() { await filter.filterByAppearance("gender") }
+document.getElementById("Hei").onclick = async function() { await filter.filterByAppearance("height") }
+document.getElementById("Wei").onclick = async function() { await filter.filterByAppearance("weight") }
+document.getElementById("Pofb").onclick = async function() { await filter.filterByAppearance("publisher") }
+document.getElementById("Ali").onclick = async function() { await filter.filterByAppearance("alignment") }
 
 document.getElementById('nbtDisplay').addEventListener('change', async function() {
-    var liste, nb
-    liste = document.getElementById("nbtDisplay")
-    nb = liste.options[liste.selectedIndex].text
-    if (nb == "all results") {
-        GenerateTable(await pagination.Page(563))
-    } else {
-        console.log(731 / nb)
-        GenerateTable(await pagination.Page(nb))
-    }
-})
+        var liste, nb
+        liste = document.getElementById("nbtDisplay")
+        nb = liste.options[liste.selectedIndex].text
+        if (nb == "all results") {
+            GenerateTable(await pagination.Page(563))
+        } else {
+            console.log(731 / nb)
+            GenerateTable(await pagination.Page(nb))
+        }
+    })
+    /*
+    document.getElementById("firstPage").addEventListener('click', function() {
+        page = 1
+    })
 
-document.getElementById("firstPage").addEventListener('click', function() {
-    page = 1
-})
+    document.getElementById("searchfunction").addEventListener('change', async function() {
+        var input = document.getElementById("searchfunction").value
+        GenerateTable(await search.search(input))
+    })
 
-document.getElementById("searchfunction").addEventListener('change', async function() {
-    var input = document.getElementById("searchfunction").value
-    GenerateTable(await search.search(input))
-})
+    document.getElementById("previousPage").addEventListener('click', function() {
+        console.log("previousPage")
+    })
 
-document.getElementById("previousPage").addEventListener('click', function() {
-    console.log("previousPage")
-})
+    document.getElementById("nextPage").addEventListener('click', function() {
+        console.log("nextpage")
+    })
 
-document.getElementById("nextPage").addEventListener('click', function() {
-    console.log("nextpage")
-})
-
-document.getElementById("lastPage").addEventListener('click', function() {
-    console.log("lastpage")
-})
-
+    document.getElementById("lastPage").addEventListener('click', function() {
+        console.log("lastpage")
+    })
+    */
 
 export async function GenerateTable(data) {
     let tbody = document.getElementById("tbody")

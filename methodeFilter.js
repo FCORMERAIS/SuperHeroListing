@@ -109,34 +109,6 @@ Array.prototype.RaceSort = function(isReverse) {
 }
 
 "use strict";
-Array.prototype.EyeColorSort = function(isReverse) {
-    this.sort(function(a, b) {
-        if (isReverse) {
-            if (b[1].eyeColor === "-" || b[1].eyeColor < a[1].eyeColor) return -1;
-            if (a[1].eyeColor === "-" || b[1].eyeColor > a[1].eyeColor) return 1;
-        } else {
-            if (b[1].eyeColor === "-" || a[1].eyeColor < b[1].eyeColor) return -1;
-            if (a[1].eyeColor === "-" || a[1].eyeColor > b[1].eyeColor) return 1;
-        }
-        return 0;
-    })
-}
-
-"use strict";
-Array.prototype.HairColorSort = function(isReverse) {
-    this.sort(function(a, b) {
-        if (isReverse) {
-            if ((b[1].hairColor === "-") || (b[1].hairColor < a[1].hairColor)) return -1;
-            if ((a[1].hairColor === "-") || (b[1].hairColor > a[1].hairColor)) return 1;
-        } else {
-            if ((b[1].hairColor === "-") || (a[1].hairColor < b[1].hairColor)) return -1;
-            if ((a[1].hairColor === "-") || (a[1].hairColor > b[1].hairColor)) return 1;
-        }
-        return 0;
-    })
-}
-
-"use strict";
 Array.prototype.PublisherSort = function(isReverse) {
     this.sort(function(a, b) {
         if (b[1].publisher == "" && a[1].publisher !== null) return -1;
