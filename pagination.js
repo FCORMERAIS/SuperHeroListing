@@ -7,13 +7,12 @@ async function GetData(id){// fonction servant à récupérer les données d'un 
     }
 }
 
-export async function Page (nb=50,page=1) {
-    console.log(nb,page)
+export async function Page (nb=50,page=1) { // fonction servant à récupérer les données des personnages et renvoie la liste avec tout les personnages utile en fonction de la page demandé et du nombre 
     let data = {}
     let i = 1
     let res = []
     let count = 0
-    while (res.length < nb*page) {
+    while (res.length < nb*page) { // on répète l'opération jusqu'à ce que la liste des héros soit égale au nombre demandé
         let PromiseList = []
         for(let tempo = 0;tempo < (nb*page)-res.length;tempo++) {
             if(GetData(i) !== false) {
@@ -21,7 +20,7 @@ export async function Page (nb=50,page=1) {
             }
             i++
         }
-        data = await Promise.all(PromiseList).then(function(values) {
+        data = await Promise.all(PromiseList).then(function(values) { // cette commande sert a recupérer tout les personnages en ne faisant qu'un aller retour vers l'API
             return values
         })
         for (let index = 0; index < data.length; index++) {
@@ -29,15 +28,13 @@ export async function Page (nb=50,page=1) {
                 res.push(data[index])
             }
         }
-        if (count > 10) {
-            break
-        }
+        if (count > 5) {break}
         count++
     }
-    return res.slice(nb*(page-1),nb*page)
+    return res.slice(nb*(page-1),nb*page) // on renvoie les héros nécessaires en fonction de la page demandé
 }
 
-export async function DataId (listID) { 
+export async function DataId (listID) {  // fonction recevant e nparametre une liste d'id et renvoie la liste des héros correspondant
     let data = {}
     let PromiseList = []
     listID.forEach(element => {
