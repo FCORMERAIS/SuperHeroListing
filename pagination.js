@@ -9,7 +9,6 @@ async function GetData(id){
 
 export async function Page (nb=50,page=1) {
     let data = {}
-    let count = 0
     let i = 1
     let res = []
     while (res.length < nb*page) {
@@ -17,7 +16,6 @@ export async function Page (nb=50,page=1) {
         for(let tempo = 0;tempo < nb-res.length;tempo++) {
             if(GetData(i) !== false) {
                 PromiseList.push(GetData(i))
-                count++
             }
             i++
         }
