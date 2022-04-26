@@ -40,7 +40,7 @@ export async function Page(listId = [], nb = 20, page = 1) {
         for (let i = (nb * (page - 1)); i < (nb * page); i++) {
             PromiseList.push(GetData(listId[i]))
         }
-        data = await Promise.all(PromiseList).then(function(values) {
+        data = await Promise.all(PromiseList).then(function(values) { // cette commande sert a recupérer tout les personnages en ne faisant qu'un aller retour vers l'API
             return values
         })
         console.log(data)

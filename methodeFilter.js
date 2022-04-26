@@ -33,7 +33,7 @@ Array.prototype.sortingWeight = function(isReverse) {
 }
 
 "use strict";
-Array.prototype.PowerSortByInt = function(isReverse) {
+Array.prototype.PowerSortByInt = function(isReverse) { // foncion permettant de trier par la stat d'intelligence des héros
     this.sort((a, b) => {
         if (isReverse) return b[1].intelligence - a[1].intelligence
         return a[1].intelligence - b[1].intelligence
@@ -41,7 +41,7 @@ Array.prototype.PowerSortByInt = function(isReverse) {
 }
 
 "use strict";
-Array.prototype.PowerSortByStr = function(isReverse) {
+Array.prototype.PowerSortByStr = function(isReverse) { // fonction permettant de trier par la stat de force des héros
     this.sort((a, b) => {
         if (isReverse) return b[1].strength - a[1].strength
         return a[1].strength - b[1].strength
@@ -49,7 +49,7 @@ Array.prototype.PowerSortByStr = function(isReverse) {
 }
 
 "use strict";
-Array.prototype.PowerSortBySpe = function(isReverse) {
+Array.prototype.PowerSortBySpe = function(isReverse) { // fonction permettant de trier par la stat de rapidité des héros
     this.sort((a, b) => {
         if (isReverse) return b[1].speed - a[1].speed
         return a[1].speed - b[1].speed
@@ -57,7 +57,7 @@ Array.prototype.PowerSortBySpe = function(isReverse) {
 }
 
 "use strict";
-Array.prototype.PowerSortByDur = function(isReverse) {
+Array.prototype.PowerSortByDur = function(isReverse) {  // fonction permettant de trier par la durée des héros
     this.sort((a, b) => {
         if (isReverse) return b[1].durability - a[1].durability
         return a[1].durability - b[1].durability
@@ -65,7 +65,7 @@ Array.prototype.PowerSortByDur = function(isReverse) {
 }
 
 "use strict";
-Array.prototype.PowerSortByPow = function(isReverse) {
+Array.prototype.PowerSortByPow = function(isReverse) { // fonction permettant de trier par la puissance des héros
     this.sort((a, b) => {
         if (isReverse) return b[1].power - a[1].power
         return a[1].power - b[1].power
@@ -73,7 +73,7 @@ Array.prototype.PowerSortByPow = function(isReverse) {
 }
 
 "use strict";
-Array.prototype.PowerSortByCom = function(isReverse) {
+Array.prototype.PowerSortByCom = function(isReverse) { // fonction permettant de trier par la stat de combat des héros
     this.sort((a, b) => {
         if (isReverse) return b[1].combat - a[1].combat
         return a[1].combat - b[1].combat
@@ -81,7 +81,7 @@ Array.prototype.PowerSortByCom = function(isReverse) {
 }
 
 "use strict";
-Array.prototype.GenderSort = function(isReverse) {
+Array.prototype.GenderSort = function(isReverse) { // fonction permettant de trier par le genre des héros
     this.sort(function(a, b) {
         if (isReverse) {
             if ((b[1].gender === "-") || (b[1].gender < a[1].gender)) return -1;
@@ -95,7 +95,7 @@ Array.prototype.GenderSort = function(isReverse) {
 }
 
 "use strict";
-Array.prototype.RaceSort = function(isReverse) {
+Array.prototype.RaceSort = function(isReverse) { // fonction permettant de trier par la race des héros
     this.sort(function(a, b) {
         if (isReverse) {
             if ((b[1].race === null) || (b[1].race < a[1].race)) return -1;
@@ -109,7 +109,7 @@ Array.prototype.RaceSort = function(isReverse) {
 }
 
 "use strict";
-Array.prototype.PublisherSort = function(isReverse) {
+Array.prototype.PublisherSort = function(isReverse) { // fonction permettant de trier par le publieur des héros
     this.sort(function(a, b) {
         if (b[1].publisher == "" && a[1].publisher !== null) return -1;
         if (a[1].publisher == "" && b[1].publisher !== null) return 1;
@@ -125,7 +125,7 @@ Array.prototype.PublisherSort = function(isReverse) {
 }
 
 "use strict";
-Array.prototype.AlignementSort = function(isReverse) {
+Array.prototype.AlignementSort = function(isReverse) { // fonction permettant de trier par L'alignement des héros
     this.sort(function(a, b) {
         if (isReverse) {
             if ((a[1].alignment === '-') || (b[1].alignment < a[1].alignment === '-')) return 1;
@@ -139,7 +139,7 @@ Array.prototype.AlignementSort = function(isReverse) {
 }
 
 "use strict";
-Array.prototype.FullNameSort = function(isReverse) {
+Array.prototype.FullNameSort = function(isReverse) { // fonction permettant de trier par fullName de héros
     this.sort(function(a, b) {
         if (b[1].fullName == "" && a[1].fullName !== null) return -1;
         if (a[1].fullName == "" && b[1].fullName !== null) return 1;

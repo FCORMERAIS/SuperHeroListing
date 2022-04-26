@@ -24,7 +24,7 @@ export async function ShowPopup(id) {
     App.style.display = "none"
     App.innerHTML = "<br>"
     for (let data in persoData.appearance) {
-        App.innerHTML += data + " : " + persoDataAT.appearance[data] + "<br>"
+        App.innerHTML += data + " : " + persoData.appearance[data] + "<br>"
     }
 
     let PSt = document.getElementById("Powerstats")
