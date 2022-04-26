@@ -8,17 +8,25 @@
     <title>JS-Project</title>
     <link rel="shortcut icon" href="images/js.jpg">
     <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 
 
-<script type="module" src="js.js"></script>
+<script type="module" src="generateTable.js"></script>
 <script type="module" src="filter.js"></script>
 
 
 <body>
+    <script type="module" src="generateTable.js"></script>
     <section class="top-page">
         <div class="landing-page">
             <h1>Challenge-JS: Sortable</h1>
@@ -30,15 +38,22 @@
     <div class="divselect">
         <label>Number of display :</label>
         <select name="afficher" id="nbtDisplay">
-            <option value="">10</option>
-            <option value="" selected>20</option>
-            <option value="">50</option>
-            <option value="">100</option>
-            <option value="">all results</option>
-        </select>
+    <label for="pet-select">Number of display :</label>
+    <select name="afficher" id="nbtDisplay">
+        <option value="">--Choose an option--</option>
+    <div>
+        <label for="pet-select">Number of display :</label>
+        <select name="afficher" id="nbtDisplay">
+        <option value="">--Please choose an option--</option>
+        <option value="">10</option>
+        <option value="">20</option>
+        <option value="">50</option>
+        <option value="">100</option>
+        <option value="">all results</option>
+    </select>
         <br><br>
         <label>Tap to :</label>
-        <input class="divsearch" type="input" class="" placeholder="Search" required />
+        <input class="divsearch" type="input" class="" placeholder="Search" required/>
     </div>
 
     <div class="divtab">
@@ -73,6 +88,35 @@
         <a href="#">Prev</a>
         <a href="#">Next</a>
         <a href="#">»</a>
+    </div>
+
+    <div id="popup" class="notshow">
+        <img id="PopupImg" style="z-index: 2">
+        <div id="tape"></div>
+        <div id="popupContenant">
+            <h1 id="PopupName" style="color: azure;text-align: center;height: 1.5em;"></h1>
+            <div id="categorie">
+                <div id="BiographyCat" class="cat">Biography</div>
+                <div id="AppearanceCat" class="cat">Appearance</div>
+                <div id="PowerstatsCat" class="cat">Powerstats</div>
+                <div id="OtherCat" class="cat">Other</div>
+            </div>
+            <div>
+                <div id="Biography" class="PopupInfo"></div>
+                <div id="Appearance" class="PopupInfo"></div>
+                <div id="Powerstats" class="PopupInfo"></div>
+                <div id="Other" class="PopupInfo"></div>
+            </div>
+        </div>
+        <div id="close" onclick="ClosePopup();">
+            X
+        </div>
+        <script>
+            function ClosePopup() {
+                let popup = document.getElementById("popup")
+                popup.style.display = "none"
+            }
+        </script>
     </div>
 
     <div class="footer-basic">

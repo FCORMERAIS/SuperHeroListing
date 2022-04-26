@@ -16,6 +16,7 @@ section.top-page {
     background-size: cover;
 }
 
+
 /* bannières */
 
 .landing-page {
@@ -24,6 +25,82 @@ section.top-page {
     color: white;
     font-size: 100px;
 }
+
+
+/* TAB */
+
+table,
+td {
+    border: 1px solid #333;
+}
+
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
+}
+
+
+/* Card */
+
+.cards {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    margin: 30px;
+    position: relative;
+    box-shadow: 0 40px 60px -6px black;
+}
+
+.card-title {
+    display: block;
+    text-align: center;
+    color: #fff;
+    background-color: #6184a8;
+    padding: 2%;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.card img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    /*filter: blur(2px);*/
+}
+
+.card-desc {
+    display: block;
+    font-size: 1.2rem;
+    position: absolute;
+    height: 371px;
+    width: 330px;
+    top: 0;
+    opacity: 0;
+    padding: 10px;
+    background-color: #6184a8;
+    overflow-y: scroll;
+    transition: 0.8s ease;
+}
+
+.card:hover .card-desc {
+    opacity: 1;
+    height: 371px;
+    width: 330px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
 
 /* title */
 
@@ -52,6 +129,7 @@ section.top-page {
 .divselect {
     margin: 50px;
 }
+
 
 /* TAB */
 
@@ -121,6 +199,7 @@ tfoot {
     border-radius: 50%;
 }
 
+
 /* pied de page */
 
 
@@ -181,4 +260,79 @@ tfoot {
     text-align: center;
     font-size: 15px;
     color: grey;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    font-family: 'Varela Round', sans-serif;
+    font-family: 'Varela Round', sans-serif;
+}
+
+tr:nth-child(even) {
+    background-color: #e0e0e0;
+}
+
+
+/* Popup */
+
+#popup {
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    background-color: #312641;
+    z-index: 9999;
+    flex-wrap: wrap;
+    padding: 1em;
+    height: 480px;
+    width: calc(320px + 31em);
+    border: 3px solid black;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 5px black;
+}
+
+#close {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    height: 1.4em;
+    width: 1.4em;
+    font-size: large;
+    border-radius: 1em;
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+    z-index: 9999;
+}
+
+.cat {
+    display: inline-block;
+    width: 24%;
+    height: 2.7em;
+    border: black;
+    border-radius: 3em;
+    color: azure;
+    text-align: center;
+    padding-top: 1.3em;
+}
+
+#popupContenant {
+    z-index: 2;
+    width: 30em;
+    overflow: hidden;
+    padding-left: 1em;
+}
+
+.PopupInfo {
+    color: azure;
+    padding: 0.5em;
+    text-align: center;
+    line-height: 2em;
+}
+
+#tape {
+    height: calc(4em - 1px);
+    position: fixed;
+    background-color: #211B2D;
+    width: calc(320px + 32em);
+    z-index: 1;
+    margin-top: 3em;
 }
