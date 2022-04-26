@@ -36,7 +36,7 @@ document.getElementById("nextPage").addEventListener('click', function(){
 })
 
 document.getElementById("lastPage").addEventListener('click', function() {
-
+    console.log("lastpage")
 })
 
 
