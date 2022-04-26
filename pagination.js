@@ -1,4 +1,4 @@
-async function GetData(id){
+async function GetData(id){// fonction servant à récupérer les données d'un personnage en fonction de son ID sans prendre ceux qui n'existe
     try {
         var hero = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/id/'+id.toString()+'.json')
         return await hero.json()
@@ -37,7 +37,7 @@ export async function Page (nb=50,page=1) {
     return res.slice(nb*(page-1),nb*page)
 }
 
-export async function DataId (listID) {
+export async function DataId (listID) { 
     let data = {}
     let PromiseList = []
     listID.forEach(element => {

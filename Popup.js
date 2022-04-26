@@ -41,8 +41,6 @@ export async function ShowPopup(id) {
     for (let data in persoData.connections) {
         Oth.innerHTML += data + " : " + persoData.connections[data] + "<br><br>"
     }
-
-
 }
 
 function OpenPopupTab(id) {
