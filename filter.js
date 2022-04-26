@@ -3,8 +3,6 @@ import * as Filter from './mothodeFilter.js';
 
 //let prefuousefilter = ""
 
-console.log(await filterByPowerstat("Int"))
-
 export async function filterByPowerstat(cat) {
     let data = await (await DataFilter.DataPowerstats()).filter(x => x != null)
     if (cat === "Int") {

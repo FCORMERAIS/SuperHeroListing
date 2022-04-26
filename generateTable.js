@@ -4,23 +4,54 @@ import * as Filter from './mothodeFilter.js';
 import * as search from './search.js';
 import { ShowPopup } from './Popup.js';
 import * as pagination from './pagination.js';
+let page = 1
 
-let data = await fetch("https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json")
-data = await data.json()
+document.getElementById('nbtDisplay').addEventListener('change', async function() {
+    var liste, nb
+    liste = document.getElementById("nbtDisplay")
+    nb = liste.options[liste.selectedIndex].text
+    if (nb == "all results") {
+        GenerateTable(await pagination.Page(563))
+    }else {
+        console.log(731/nb)
+        GenerateTable(await pagination.Page(nb))
+    }
+})
+
+// document.getElementById("firstPage").addEventListener('click', function(){
+//     page = 1 
+// })
+
+// document.getElementById("searchfunction").addEventListener('change', async function(){
+//     var input = document.getElementById("searchfunction").value
+//     GenerateTable(await search.search(input))
+// })
+
+// document.getElementById("previousPage").addEventListener('click', function(){
+//     console.log("previousPage")    
+// })
+
+// document.getElementById("nextPage").addEventListener('click', function(){
+//     console.log("nextpage")
+// })
+
+// document.getElementById("lastPage").addEventListener('click', function() {
+//     console.log("lastpage")
+// })
+
 
 export async function GenerateTable(data) {
-    let listToPrint = await pagination.firstPage()
     let tbody = document.getElementById("tbody")
     tbody.replaceChildren()
     let listColor = ["#FF0DE1", "#CA0DFF", "#6B0DFF", "#0D16FF", "#0D7CFF", "#0DC0FF", "#0DFFD9", "#0DFF85", "#0DFF29", "#50FF0D", "#A7FF0D", "#F3FF0D", "#FFA60D", "#FF4B0D", "#FF110D", "#FF0D5E", "#FF0DA7"]
-    for (let i = 0; i < listToPrint.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         const tr = document.createElement("tr")
 
-        if (listToPrint[i].images.sm == "error") {
+        if (data[i].images.sm == "error") {
             tr.innerHTML = "ERROR : NOT FOUND"
             tr.style.textAlign = "center";
         } else {
-            tr.onclick = function() { ShowPopup(listToPrint[i].id) }
+            tr.onclick = function() { ShowPopup(data[i].id) }
             tr.onmouseover = function() { this.style.backgroundColor = listColor[Math.floor(Math.random() * listColor.length)] }
             if (i % 2 == 0) {
                 tr.onmouseout = function() { this.style.backgroundColor = '#ffffff' }
@@ -29,37 +60,37 @@ export async function GenerateTable(data) {
             }
             const tdImages = document.createElement("td")
             const img = document.createElement("img")
-            img.src = listToPrint[i].images.xs
+            img.src = data[i].images.xs
             tdImages.appendChild(img)
             tr.appendChild(tdImages)
 
             const tdname = document.createElement("td")
-            tdname.innerHTML = listToPrint[i].name
+            tdname.innerHTML = data[i].name
             tr.appendChild(tdname)
 
             const tdFullName = document.createElement("td")
-            tdFullName.innerHTML = listToPrint[i].biography.fullName
+            tdFullName.innerHTML = data[i].biography.fullName
             tr.appendChild(tdFullName)
 
-            for (let powerstats in listToPrint[i].powerstats) {
+            for (let powerstats in data[i].powerstats) {
                 const tdpowerstats = document.createElement("td")
-                tdpowerstats.innerHTML = listToPrint[i].powerstats[powerstats]
+                tdpowerstats.innerHTML = data[i].powerstats[powerstats]
                 tr.appendChild(tdpowerstats)
             }
 
             const tdpOfBirth = document.createElement("td")
-            tdpOfBirth.innerHTML = listToPrint[i].biography.placeOfBirth
+            tdpOfBirth.innerHTML = data[i].biography.placeOfBirth
             tr.appendChild(tdpOfBirth)
 
             const apparenceToShow = ["race", "gender", "height", "weight"]
             for (let apparence = 0; apparence < 4; apparence++) {
                 const tdApparence = document.createElement("td")
-                tdApparence.innerHTML = listToPrint[i].appearance[apparenceToShow[apparence]]
+                tdApparence.innerHTML = data[i].appearance[apparenceToShow[apparence]]
                 tr.appendChild(tdApparence)
             }
 
             const tdAlignment = document.createElement("td")
-            tdAlignment.innerHTML = listToPrint[i].biography.alignment
+            tdAlignment.innerHTML = data[i].biography.alignment
             tr.appendChild(tdAlignment)
 
             tbody.appendChild(tr)
@@ -68,12 +99,11 @@ export async function GenerateTable(data) {
     let table = document.getElementById("table")
     table.appendChild(tbody)
 }
-GenerateTable()
+GenerateTable(await pagination.Page(20))
     /* recuperer les données de tout la liste a afficher 
     cree autent de ligne que d'elem dans la list 
     affiche les elem dans la ligne
 =======
->>>>>>> a5f305ca8f91a50d70c6f371e11e3a0f57db4a77
 
     - Icon (`.images.xs`, should be displayed as images and not as a string)
     - Name (`.name`)
