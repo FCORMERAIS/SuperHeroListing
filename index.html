@@ -35,83 +35,76 @@
 
     <h2 class="section-title">Heros</h2>
 
-    <div class="divselect">
-        <div class="option">
-            <label>Number of display :</label>
-            <select name="afficher" id="nbtDisplay">
+
+    <div class="option">
+        <label>Number of display :</label>
+        <select name="afficher" id="nbtDisplay">
                 <option value="">10</option>
                 <option value="" selected>20</option>
                 <option value="">50</option>
                 <option value="">100</option>
                 <option value="">all results</option>
             </select>
-            <br><br>
-            <label>Tap to :</label>
-            <input class="divsearch" type="input" class="" placeholder="Search" required />
-        </div>
+        <br><br>
+        <label>Tap to :</label>
+        <input class="divsearch" type="input" class="" placeholder="Search" required />
+    </div>
 
-        <div class="divtab">
-            <table id="table">
-                <thead>
-                    <tr>
-                        <th class="ligne">Trier par : </th>
-                        <th class="ligne"><button class="btn" type="button" id="Name">Name</button>
-                        </th>
-                        <th class="ligne"><button class="btn" type="button" id="Fname">Full Name
+    <div class="divtab">
+        <table id="table">
+            <thead>
+                <tr>
+                    <th class="ligne">Trier par : </th>
+                    <th class="ligne"><button class="btn" type="button" id="Name">Name</button>
+                    </th>
+                    <th class="ligne"><button class="btn" type="button" id="Fname">Full Name
                         </th>
                         <th class="ligne"><button class="btn" type="button" id="Int">Int</button>
-                        </th>
-                        <th class="ligne"><button class="btn" type="button" id="Str">Str</button>
-                        </th>
-                        <th class="ligne"><button class="btn" type="button" id="Spe">Spe</button>
-                        </th>
-                        <th class="ligne"><button class="btn" type="button" id="Dur">Dur</button></th>
-                        <th class="ligne"><button class="btn" type="button" id="Pow">Pow</button></th>
-                        <th class="ligne"><button class="btn" type="button" id="Com">Com</button></th>
-                        <th class="ligne"><button class="btn" type="button" id="Race">Race</button>
-                        </th>
-                        <th class="ligne"><button class="btn" type="button" id="Gen">Gender</button>
-                        </th>
-                        <th class="ligne"><button class="btn" type="button" id="Hei">Height</button>
-                        </th>
-                        <th class="ligne"><button class="btn" type="button" id="Wei">Weight</button>
-                        </th>
-                        <th class="ligne"><button class="btn" type="button" id="Pofb">Place of
+                    </th>
+                    <th class="ligne"><button class="btn" type="button" id="Str">Str</button>
+                    </th>
+                    <th class="ligne"><button class="btn" type="button" id="Spe">Spe</button>
+                    </th>
+                    <th class="ligne"><button class="btn" type="button" id="Dur">Dur</button></th>
+                    <th class="ligne"><button class="btn" type="button" id="Pow">Pow</button></th>
+                    <th class="ligne"><button class="btn" type="button" id="Com">Com</button></th>
+                    <th class="ligne"><button class="btn" type="button" id="Race">Race</button>
+                    </th>
+                    <th class="ligne"><button class="btn" type="button" id="Gen">Gender</button>
+                    </th>
+                    <th class="ligne"><button class="btn" type="button" id="Hei">Height</button>
+                    </th>
+                    <th class="ligne"><button class="btn" type="button" id="Wei">Weight</button>
+                    </th>
+                    <th class="ligne"><button class="btn" type="button" id="Pofb">Place of
                                 Birth</button></th>
-                        <th class="ligne"><button class="btn" type="button" id="Ali">Alignment</button>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody id="tbody">
-                    <script type="module" src="js.js"></script>
-                </tbody>
-            </table>
-        </div>
+                    <th class="ligne"><button class="btn" type="button" id="Ali">Alignment</button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <script type="module" src="js.js"></script>
+            </tbody>
+        </table>
+    </div>
 
-        <div class="pagination">
-            <a href="#">«</a>
-            <a href="#">Prev</a>
-            <a href="#">Next</a>
-            <a href="#">»</a>
-        </div>
+    <div class="pagination">
+        <a href="#">«</a>
+        <a href="#">Prev</a>
+        <a href="#">Next</a>
+        <a href="#">»</a>
+    </div>
 
-        <div id="popup" class="notshow">
-            <img id="PopupImg" style="z-index: 2">
-            <div id="tape"></div>
-            <div id="popupContenant">
-                <h1 id="PopupName" style="color: azure;text-align: center;height: 1.5em;"></h1>
-                <div id="categorie">
-                    <div id="BiographyCat" class="cat">Biography</div>
-                    <div id="AppearanceCat" class="cat">Appearance</div>
-                    <div id="PowerstatsCat" class="cat">Powerstats</div>
-                    <div id="OtherCat" class="cat">Other</div>
-                </div>
-                <div>
-                    <div id="Biography" class="PopupInfo"></div>
-                    <div id="Appearance" class="PopupInfo"></div>
-                    <div id="Powerstats" class="PopupInfo"></div>
-                    <div id="Other" class="PopupInfo"></div>
-                </div>
+    <div id="popup" class="notshow">
+        <img id="PopupImg" style="z-index: 2">
+        <div id="tape"></div>
+        <div id="popupContenant">
+            <h1 id="PopupName" style="color: azure;text-align: center;height: 1.5em;"></h1>
+            <div id="categorie">
+                <div id="BiographyCat" class="cat">Biography</div>
+                <div id="AppearanceCat" class="cat">Appearance</div>
+                <div id="PowerstatsCat" class="cat">Powerstats</div>
+                <div id="OtherCat" class="cat">Other</div>
             </div>
             <div>
                 <div id="Biography" class="PopupInfo"></div>
@@ -120,51 +113,30 @@
                 <div id="Other" class="PopupInfo"></div>
             </div>
         </div>
-        <<<<<<< HEAD <div id="close" onclick="ClosePopup();">
-            X =======
-
-            <div class="footer-basic">
-                <footer>
-                    <p class="copyright">LinkedIn</p>
-                    <ul class="list-inline">
-                        <li><a href="https://www.linkedin.com/in/maxime-chevalier-953848223">Maxime.C</a></li>
-                        <li><a href="https://www.linkedin.com/in/florien-quicy/">Florien.Q</a></li>
-                        <li><a href="https://www.linkedin.com/in/lisa-achard/">Lisa.A</a></li>
-                        <li><a href="https://www.linkedin.com/in/cormerais-flavio-412559223/">Flavio.C</a></li>
-                    </ul>
-                    <p class="copyright">&copy; 2022 - Challenge-JS: Sortable</p>
-                </footer>
-                >>>>>>> maxime
-            </div>
-            <script>
-                function ClosePopup() {
-                    let popup = document.getElementById("popup")
-                    popup.style.display = "none"
-                }
-            </script>
+        <div id="close" onclick="ClosePopup();">X</div>
     </div>
 
-    <<<<<<< HEAD <div class="pagination">
-        <a href="#">«</a>
-        <a href="#">Prev</a>
-        <a href="#">Next</a>
-        <a href="#">»</a>
-        </div>
 
-        <div class="footer-basic">
-            <footer>
-                <p class="copyright">LinkedIn</p>
-                <ul class="list-inline">
-                    <li><a href="https://www.linkedin.com/in/maxime-chevalier-953848223">Maxime.C</a></li>
-                    <li><a href="https://www.linkedin.com/in/florien-quicy/">Florien.Q</a></li>
-                    <li><a href="https://www.linkedin.com/in/lisa-achard/">Lisa.A</a></li>
-                    <li><a href="https://www.linkedin.com/in/cormerais-flavio-412559223/">Flavio.C</a></li>
-                </ul>
-                <p class="copyright">&copy; 2022 - Challenge-JS: Sortable</p>
-            </footer>
-        </div>
+    <div class="footer-basic">
+        <footer>
+            <p class="copyright">LinkedIn</p>
+            <ul class="list-inline">
+                <li><a href="https://www.linkedin.com/in/maxime-chevalier-953848223">Maxime.C</a></li>
+                <li><a href="https://www.linkedin.com/in/florien-quicy/">Florien.Q</a></li>
+                <li><a href="https://www.linkedin.com/in/lisa-achard/">Lisa.A</a></li>
+                <li><a href="https://www.linkedin.com/in/cormerais-flavio-412559223/">Flavio.C</a></li>
+            </ul>
+            <p class="copyright">&copy; 2022 - Challenge-JS: Sortable</p>
+        </footer>
+    </div>
+    <script>
+        function ClosePopup() {
+            let popup = document.getElementById("popup")
+            popup.style.display = "none"
+        }
+    </script>
 
-        ======= >>>>>>> maxime
+
 </body>
 
 </html>
