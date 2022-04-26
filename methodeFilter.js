@@ -10,9 +10,6 @@ Array.prototype.sortingHeight = function(isReverse) {
         if (isReverse) return b - a
         return a - b
     })
-
-    // Si descending pressé : 
-    // Array.prototype.reverse(this.sort(a, b));
 }
 
 "use strict";
@@ -27,9 +24,6 @@ Array.prototype.sortingWeight = function(isReverse) {
         if (isReverse) return b - a
         return a - b
     })
-
-    // Si descending pressé : 
-    // Array.prototype.reverse(this.sort(a, b));
 }
 
 "use strict";
@@ -57,7 +51,7 @@ Array.prototype.PowerSortBySpe = function(isReverse) { // fonction permettant de
 }
 
 "use strict";
-Array.prototype.PowerSortByDur = function(isReverse) {  // fonction permettant de trier par la durée des héros
+Array.prototype.PowerSortByDur = function(isReverse) { // fonction permettant de trier par la durée des héros
     this.sort((a, b) => {
         if (isReverse) return b[1].durability - a[1].durability
         return a[1].durability - b[1].durability
