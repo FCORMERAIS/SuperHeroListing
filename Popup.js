@@ -1,5 +1,6 @@
 export async function ShowPopup(id) {
 
+    console.log(id)
     document.getElementById("popup").style.display = "flex"
     document.getElementById("BiographyCat").style.backgroundColor = "#392D4C"
     document.getElementById("AppearanceCat").style.backgroundColor = "transparent"

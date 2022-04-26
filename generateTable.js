@@ -1,4 +1,6 @@
 import * as filter from "./filter.js";
+import * as DataFilter from './getDataForFilter.js';
+import * as Filter from './mothodeFilter.js';
 import * as search from './search.js';
 import { ShowPopup } from './Popup.js';
 import * as pagination from './pagination.js';
