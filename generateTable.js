@@ -5,62 +5,46 @@ import * as search from './search.js';
 import { ShowPopup } from './Popup.js';
 import * as pagination from './pagination.js';
 
-console.log(await pagination.Page(50,2))
-
-let page = 1
-let nb = 20
+export let page = 1
+export let nb = 20
+export let listId = []
+export let listePreLoad = []
 
 document.getElementById('nbtDisplay').addEventListener('change', async function() { // Change the number of display
     var liste
     liste = document.getElementById("nbtDisplay")
     nb = liste.options[liste.selectedIndex].text
     if (nb == "all results") {
-        GenerateTable(await pagination.Page(563))
+        GenerateTable(await pagination.Page(listId, 563))
     } else {
-        GenerateTable(await pagination.Page(nb))
+        GenerateTable(await pagination.Page(listId, nb))
     }
 })
 
-document.getElementById("searchfunction").addEventListener('change', async function(){ // search function
+document.getElementById("searchfunction").addEventListener('keydown', async function() { // search function
     var input = document.getElementById("searchfunction").value
     GenerateTable(await search.search(input))
 })
 
-document.getElementById("firstPage").addEventListener('click', async function(){ // return to the first page
+document.getElementById("firstPage").addEventListener('click', async function() { // return to the first page
     page = 1
-    GenerateTable(await pagination.Page(nb))
+    GenerateTable(await pagination.Page(listId, nb))
 })
 
-document.getElementById("previousPage").addEventListener('click', async function(){ // return tou the previous page
-    if (page>1) {page -=1}
-    GenerateTable(await pagination.Page(nb,page))
+document.getElementById("previousPage").addEventListener('click', async function() { // return tou the previous page
+    if (page > 1) { page -= 1 }
+    GenerateTable(await pagination.Page(listId, nb, page))
 })
 
-document.getElementById("nextPage").addEventListener('click', async function(){ // go to the next page
-    if (page<Math.floor(563/nb)) {page +=1}
-    GenerateTable(await pagination.Page(nb,page))
+document.getElementById("nextPage").addEventListener('click', async function() { // go to the next page
+    if (page < Math.floor(563 / nb)) { page += 1 }
+    GenerateTable(await pagination.Page(listId, nb, page))
 })
 
 document.getElementById("lastPage").addEventListener('click', async function() { // go to the last page
-    page = Math.floor(563/nb)+1
-    GenerateTable(await pagination.Page(nb,page))
+    page = Math.floor(563 / nb) + 1
+    GenerateTable(await pagination.Page(listId, nb, page))
 })
-
-document.getElementById("Name").onclick = async function() { await GenerateTable(await pagination.Page(563)) }
-document.getElementById("Fname").onclick = async function() { await GenerateTable(filter.filterByBiography("fullName")) }
-document.getElementById("Int").onclick = async function() { await filter.filterByPowerstat("Int") }
-document.getElementById("Str").onclick = async function() { await filter.filterByPowerstat("Str") }
-document.getElementById("Spe").onclick = async function() { await filter.filterByPowerstat("Spe") }
-document.getElementById("Dur").onclick = async function() { await filter.filterByPowerstat("Dur") }
-document.getElementById("Pow").onclick = async function() { await filter.filterByPowerstat("Pow") }
-document.getElementById("Com").onclick = async function() { await filter.filterByPowerstat("Com") }
-document.getElementById("Race").onclick = async function() { await filter.filterByAppearance("race") }
-document.getElementById("Gen").onclick = async function() { await filter.filterByAppearance("gender") }
-document.getElementById("Hei").onclick = async function() { await filter.filterByAppearance("height") }
-document.getElementById("Wei").onclick = async function() { await filter.filterByAppearance("weight") }
-document.getElementById("Pofb").onclick = async function() { await filter.filterByAppearance("publisher") }
-document.getElementById("Ali").onclick = async function() { await filter.filterByAppearance("alignment") }
-
 
 export async function GenerateTable(data) {
     let tbody = document.getElementById("tbody")
@@ -121,21 +105,64 @@ export async function GenerateTable(data) {
     let table = document.getElementById("table")
     table.appendChild(tbody)
 }
-GenerateTable(await pagination.Page(20))
-    /* recuperer les données de tout la liste a afficher 
-    cree autent de ligne que d'elem dans la list 
-    affiche les elem dans la ligne
-=======
+GenerateTable(await pagination.Page(listId, 20))
 
-    - Icon (`.images.xs`, should be displayed as images and not as a string)
-    - Name (`.name`)
-    - Full Name (`.biography.fullName`)
-    - Powerstats (each entry of `.powerstats`)
-    - Race (`.appearance.race`)
-    - Gender (`.appearance.gender`)
-    - Height (`.appearance.height`)
-    - Weight (`.appearance.weight`)
-    - Place Of Birth (`.biography.placeOfBirth`)
-    - Alignement (`.biography.alignment`)
 
-    */
+// Create the filter button function
+
+document.getElementById("Name").onclick = async function() {
+    listId = []
+    await GenerateTable(await pagination.Page(listId, nb, page))
+}
+document.getElementById("Fname").onclick = async function() {
+    listId = await filter.filterByBiography("fullName")
+    await GenerateTable(await pagination.Page(listId, nb, page))
+}
+document.getElementById("Int").onclick = async function() {
+    listId = await filter.filterByPowerstat("Int")
+    await GenerateTable(await pagination.Page(listId, nb, page))
+}
+document.getElementById("Str").onclick = async function() {
+    listId = await filter.filterByPowerstat("Str")
+    await GenerateTable(await pagination.Page(listId, nb, page))
+}
+document.getElementById("Spe").onclick = async function() {
+    listId = await filter.filterByPowerstat("Spe")
+    await GenerateTable(await pagination.Page(listId, nb, page))
+}
+document.getElementById("Dur").onclick = async function() {
+    listId = await filter.filterByPowerstat("Dur")
+    await GenerateTable(await pagination.Page(listId, nb, page))
+}
+document.getElementById("Pow").onclick = async function() {
+    listId = await filter.filterByPowerstat("Pow")
+    await GenerateTable(await pagination.Page(listId, nb, page))
+}
+document.getElementById("Com").onclick = async function() {
+    listId = await filter.filterByPowerstat("Com")
+    await GenerateTable(await pagination.Page(listId, nb, page))
+}
+document.getElementById("Race").onclick = async function() {
+    listId = await filter.filterByAppearance("race")
+    await GenerateTable(await pagination.Page(listId, nb, page))
+}
+document.getElementById("Gen").onclick = async function() {
+    listId = await filter.filterByAppearance("gender")
+    await GenerateTable(await pagination.Page(listId, nb, page))
+}
+document.getElementById("Hei").onclick = async function() {
+    listId = await filter.filterByAppearance("height")
+    await GenerateTable(await pagination.Page(listId, nb, page))
+}
+document.getElementById("Wei").onclick = async function() {
+    listId = await filter.filterByAppearance("weight")
+    await GenerateTable(await pagination.Page(listId, nb, page))
+}
+document.getElementById("Pofb").onclick = async function() {
+    listId = await filter.filterByAppearance("publisher")
+    await GenerateTable(await pagination.Page(listId, nb, page))
+}
+document.getElementById("Ali").onclick = async function() {
+    listId = await filter.filterByAppearance("alignment")
+    await GenerateTable(await pagination.Page(listId, nb, page))
+}

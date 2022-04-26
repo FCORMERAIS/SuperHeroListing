@@ -28,7 +28,7 @@ export async function filterByPowerstat(cat) {
     for (let i = 0; i < data.length; i++) {
         listId.push(data[i][0])
     }
-    GenerateTable(await pagination.DataId(listId))
+    return listId
 }
 
 export async function filterByAppearance(cat) {
@@ -50,7 +50,7 @@ export async function filterByAppearance(cat) {
     for (let i = 0; i < data.length; i++) {
         listId.push(data[i][0])
     }
-    GenerateTable(await pagination.DataId(listId))
+    return listId
 }
 
 export async function filterByBiography(cat) {
@@ -70,5 +70,5 @@ export async function filterByBiography(cat) {
     for (let i = 0; i < data.length; i++) {
         listId.push(data[i][0])
     }
-    GenerateTable(await pagination.DataId(listId))
+    return listId
 }

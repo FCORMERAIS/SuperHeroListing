@@ -29,7 +29,7 @@ export async function ShowPopup(id) {
 
     let PSt = document.getElementById("Powerstats")
     PSt.style.display = "none"
-    PSt.innerHTML = "<br>"ATA
+    PSt.innerHTML = "<br>"
     for (let data in persoData.powerstats) {
         PSt.innerHTML += data + " : " + persoData.powerstats[data] + "<br>"
     }
@@ -42,7 +42,7 @@ export async function ShowPopup(id) {
         Oth.innerHTML += data + " : " + persoData.connections[data] + "<br><br>"
     }
 }
-ATATA
+
 function OpenPopupTab(id) {
     const listCat = [
         [document.getElementById("BiographyCat"), document.getElementById("Biography")],
@@ -60,7 +60,7 @@ function OpenPopupTab(id) {
         }
     }
 }
-e       aRRARARARAR
+
 function GeneratePopupCatAction() {
     document.getElementById("BiographyCat").onclick = function() { OpenPopupTab(0) }
     document.getElementById("AppearanceCat").onclick = function() { OpenPopupTab(1) }
@@ -70,4 +70,4 @@ function GeneratePopupCatAction() {
 
 GeneratePopupCatAction()
 let popup = document.getElementById("popup")
-popup.style.display = "none"AT
+popup.style.display = "none"

@@ -14,7 +14,6 @@ export async function DataPowerstats() {
         PromiseList.push(GetDataSpetial("powerstats", i + 1))
     }
     return await Promise.all(PromiseList).then(function(values) {
-        console.log(values)
         return values
     })
 }
