@@ -55,22 +55,6 @@ document.getElementById("lastPage").addEventListener('click', async function() {
     GenerateTable(await pagination.Page(nb, page)) // renvoie la derniere page 
 })
 
-document.getElementById("Name").onclick = async function() { await GenerateTable(await pagination.Page(563)) } // on affiche la page correspondante au filtre demandé par l'utilisateur 
-document.getElementById("Fname").onclick = async function() { await GenerateTable(filter.filterByBiography("fullName")) } // on affiche la page correspondante au filtre demandé par l'utilisateur 
-document.getElementById("Int").onclick = async function() { await filter.filterByPowerstat("Int") } // on affiche la page correspondante au filtre demandé par l'utilisateur 
-document.getElementById("Str").onclick = async function() { await filter.filterByPowerstat("Str") } // on affiche la page correspondante au filtre demandé par l'utilisateur 
-document.getElementById("Spe").onclick = async function() { await filter.filterByPowerstat("Spe") } // on affiche la page correspondante au filtre demandé par l'utilisateur 
-document.getElementById("Dur").onclick = async function() { await filter.filterByPowerstat("Dur") } // on affiche la page correspondante au filtre demandé par l'utilisateur 
-document.getElementById("Pow").onclick = async function() { await filter.filterByPowerstat("Pow") } // on affiche la page correspondante au filtre demandé par l'utilisateur 
-document.getElementById("Com").onclick = async function() { await filter.filterByPowerstat("Com") } // on affiche la page correspondante au filtre demandé par l'utilisateur 
-document.getElementById("Race").onclick = async function() { await filter.filterByAppearance("race") } // on affiche la page correspondante au filtre demandé par l'utilisateur 
-document.getElementById("Gen").onclick = async function() { await filter.filterByAppearance("gender") } // on affiche la page correspondante au filtre demandé par l'utilisateur 
-document.getElementById("Hei").onclick = async function() { await filter.filterByAppearance("height") } // on affiche la page correspondante au filtre demandé par l'utilisateur 
-document.getElementById("Wei").onclick = async function() { await filter.filterByAppearance("weight") } // on affiche la page correspondante au filtre demandé par l'utilisateur 
-document.getElementById("Pofb").onclick = async function() { await filter.filterByAppearance("publisher") } // on affiche la page correspondante au filtre demandé par l'utilisateur 
-document.getElementById("Ali").onclick = async function() { await filter.filterByAppearance("alignment") } // on affiche la page correspondante au filtre demandé par l'utilisateur 
-
-
 export async function GenerateTable(data) {
     let tbody = document.getElementById("tbody")
     tbody.replaceChildren()
@@ -133,7 +117,7 @@ export async function GenerateTable(data) {
 GenerateTable(await pagination.Page(listId, 20))
 
 
-// Create the filter button function
+// on affiche la page correspondante au filtre demandé par l'utilisateur 
 
 document.getElementById("Name").onclick = async function() {
     listId = []
@@ -191,4 +175,3 @@ document.getElementById("Ali").onclick = async function() {
     listId = await filter.filterByAppearance("alignment")
     await GenerateTable(await pagination.Page(listId, nb, page))
 }
-GenerateTable(await pagination.Page()) // on créer notre table de départ c'est notre initialisation
