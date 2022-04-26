@@ -26,11 +26,13 @@ section.top-page {
     font-size: 100px;
 }
 
+
 /* choose opt */
 
 .option {
     margin: 50px;
 }
+
 
 /* title */
 
@@ -53,6 +55,17 @@ section.top-page {
 .sectionart {
     margin: 100px;
 }
+
+
+/* search */
+
+
+/* select */
+
+.divselect {
+    margin: 50px;
+}
+
 
 /* TAB */
 
@@ -102,6 +115,7 @@ tfoot {
     background-color: black;
 }
 
+
 /* pagination */
 
 .pagination {
@@ -124,7 +138,6 @@ tfoot {
 
 
 /* pied de page */
-
 
 .footer-basic {
     padding: 15px;
