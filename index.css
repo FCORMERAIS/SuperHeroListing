@@ -129,11 +129,13 @@ tfoot {
     float: left;
     padding: 12px 18px;
     text-decoration: none;
+    height: 20px;
+    margin: 5px 0px 5px 0px;
 }
 
 .pagination a:hover:not(.active) {
     background-color: grey;
-    border-radius: 50%;
+    border-radius: 22px;
 }
 
 
