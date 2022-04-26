@@ -4,8 +4,10 @@ import * as Filter from './mothodeFilter.js';
 import * as search from './search.js';
 import { ShowPopup } from './Popup.js';
 import * as pagination from './pagination.js';
+
 let page = 1
 let nb = 20
+
 document.getElementById('nbtDisplay').addEventListener('change', async function() {
     var liste, nb
     liste = document.getElementById("nbtDisplay")
@@ -28,15 +30,19 @@ document.getElementById("searchfunction").addEventListener('change', async funct
 })
 
 document.getElementById("previousPage").addEventListener('click', function(){
-    console.log("previousPage")    
+    if (page<Math.floor(563/nb)) {
+        page +=1
+    }    
 })
 
 document.getElementById("nextPage").addEventListener('click', function(){
-    console.log("nextpage")
+    if (page>1) {
+        page -=1
+    } 
 })
 
 document.getElementById("lastPage").addEventListener('click', function() {
-    page = Math.floor(563/nb) 
+    page = Math.floor(563/nb)
 })
 
 

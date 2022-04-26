@@ -7,16 +7,16 @@ async function GetData(id){
     }
 }
 
-export async function Page (nb=50,page) {
+export async function Page (nb=50,page=1) {
     let data = {}
     let count = 0
     let i = 1
     let res = []
-    while (res.length < nb) {
+    while (res.length < nb*page) {
         let PromiseList = []
         for(let tempo = 0;tempo < nb-res.length;tempo++) {
-            if(GetData(i+id) !== false) {
-                PromiseList.push(GetData(i+id))
+            if(GetData(i) !== false) {
+                PromiseList.push(GetData(i))
                 count++
             }
             i++
@@ -30,7 +30,8 @@ export async function Page (nb=50,page) {
             }
         }
     }
-    return res
+    console.log(res.slice(nb*(page-1),nb*page))
+    return res.slice(nb*(page-1),nb*page)
 }
 
 export async function DataId (listID) {
