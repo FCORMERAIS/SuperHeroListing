@@ -11,13 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 </head>
 
 
@@ -38,8 +31,9 @@
     <div class="option">
         <label>Number of display :</label>
         <select name="afficher" id="nbtDisplay">
+            <option value="">Choose a value</option>
             <option value="">10</option>
-            <option value="" selected>20</option>
+            <option value="">20</option>
             <option value="">50</option>
             <option value="">100</option>
             <option value="">all results</option>
@@ -49,43 +43,61 @@
         <input class="divsearch" type="input" class="" id="searchfunction" placeholder="Search" required />
     </div>
 
-    <div class="divtab">
-        <table id="table">
-            <thead>
-                <tr>
-                    <th class="ligne">Trier par : </th>
-                    <th class="ligne"><button class="btn" type="button" id="Name" onClick="NameAZ();">Name</button></th>
-                    <th class="ligne"><button class="btn" type="button" id="Fname" onClick="FullName();">Full Name</th>
-                    <th class="ligne"><button class="btn" type="button" id="Intell" onClick="Int();">Int</button></th>
-                    <th class="ligne"><button class="btn" type="button" id="Str" onClick="Strength();">Str</button></th>
-                    <th class="ligne"><button class="btn" type="button" id="Spe" onClick="Speed();">Spe</button></th>
-                    <th class="ligne"><button class="btn" type="button" id="Dur" onClick="Dur();">Dur</button></th>
-                    <th class="ligne"><button class="btn" type="button" id="Pow" onClick="Pow();">Pow</button></th>
-                    <th class="ligne"><button class="btn" type="button" id="Com" onClick="Com();">Com</button></th>
-                    <th class="ligne"><button class="btn" type="button" id="Race" onClick="Race();">Race</button></th>
-                    <th class="ligne"><button class="btn" type="button" id="Gen" onClick="Gen();">Gender</button></th>
-                    <th class="ligne"><button class="btn" type="button" id="Hei" onClick="Hei();">Height</button></th>
-                    <th class="ligne"><button class="btn" type="button" id="Wei" onClick="Wei();">Weight</button></th>
-                    <th class="ligne"><button class="btn" type="button" id="Pofb" onClick="Pofb();">Place of Birth</button></th>
-                    <th class="ligne"><button class="btn" type="button" id="Ali" onClick="Ali();">Alignment</button></th>
-                </tr>
-            </thead>
-            <tbody id="tbody">
-                <script type="module" src="generateTable.js"></script>
-            </tbody>
-        </table>
-    </div>
+        <div class="divtab">
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th class="ligne">sorted by : </th>
+                        <th class="ligne"><button class="btn" type="button" id="Name">Name</button>
+                        </th>
+                        <th class="ligne"><button class="btn" type="button" id="Fname">Full Name
+                        </th>
+                        <th class="ligne"><button class="btn" type="button" id="Int">Int</button>
+                        </th>
+                        <th class="ligne"><button class="btn" type="button" id="Str">Str</button>
+                        </th>
+                        <th class="ligne"><button class="btn" type="button" id="Spe">Spe</button>
+                        </th>
+                        <th class="ligne"><button class="btn" type="button" id="Dur">Dur</button></th>
+                        <th class="ligne"><button class="btn" type="button" id="Pow">Pow</button></th>
+                        <th class="ligne"><button class="btn" type="button" id="Com">Com</button></th>
+                        <th class="ligne"><button class="btn" type="button" id="Pofb">Place of Birth</button></th>
+                        
+                        <th class="ligne"><button class="btn" type="button" id="Race">Race</button>
+                        </th>
+                        <th class="ligne"><button class="btn" type="button" id="Gen">Gender</button>
+                        </th>
+                        <th class="ligne"><button class="btn" type="button" id="Hei">Height</button>
+                        </th>
+                        <th class="ligne"><button class="btn" type="button" id="Wei">Weight</button>
+                        </th>
+                        <th class="ligne"><button class="btn" type="button" id="Ali">Alignment</button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <script type="module" src="generateTable.js"></script>
+                </tbody>
+            </table>
+        </div>
 
-    <div id="popup" class="notshow">
-        <img id="PopupImg" style="z-index: 2">
-        <div id="tape"></div>
-        <div id="popupContenant">
-            <h1 id="PopupName" style="color: azure;text-align: center;height: 1.5em;"></h1>
-            <div id="categorie">
-                <div id="BiographyCat" class="cat">Biography</div>
-                <div id="AppearanceCat" class="cat">Appearance</div>
-                <div id="PowerstatsCat" class="cat">Powerstats</div>
-                <div id="OtherCat" class="cat">Other</div>
+        <div id="popup" class="notshow">
+            <img id="PopupImg" style="z-index: 2">
+            <div id="tape"></div>
+            <div id="popupContenant">
+                <h1 id="PopupName" style="color: azure;text-align: center;height: 1.5em;"></h1>
+                <div id="categorie">
+                    <div id="BiographyCat" class="cat">Biography</div>
+                    <div id="AppearanceCat" class="cat">Appearance</div>
+                    <div id="PowerstatsCat" class="cat">Powerstats</div>
+                    <div id="OtherCat" class="cat">Other</div>
+                </div>
+                <div>
+                    <div id="Biography" class="PopupInfo"></div>
+                    <div id="Appearance" class="PopupInfo"></div>
+                    <div id="Powerstats" class="PopupInfo"></div>
+                    <div id="Other" class="PopupInfo"></div>
+                </div>
             </div>
             <div>
                 <div id="Biography" class="PopupInfo"></div>
@@ -94,15 +106,12 @@
                 <div id="Other" class="PopupInfo"></div>
             </div>
         </div>
-        <div id="close" onclick="ClosePopup();">
-            X
-        </div>
-        <script>
-            function ClosePopup() {
-                let popup = document.getElementById("popup")
-                popup.style.display = "none"
-            }
-        </script>
+            <script>
+                function ClosePopup() {
+                    let popup = document.getElementById("popup")
+                    popup.style.display = "none"
+                }
+            </script>
     </div>
 
     <div class="pagination">
