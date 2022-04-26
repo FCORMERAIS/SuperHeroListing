@@ -3,7 +3,6 @@ import * as Filter from './methodeFilter.js';
 
 let prefuousefilter = ""
 
-
 export async function filterByPowerstat(cat) {
     let data = await (await DataFilter.DataPowerstats()).filter(x => x != null)
     let isReverse = (prefuousefilter === cat)

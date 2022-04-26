@@ -29,19 +29,13 @@
     <script type="module" src="generateTable.js"></script>
     <section class="top-page">
         <div class="landing-page">
-            <h1>JS-Project</h1>
+            <h1>Challenge-JS: Sortable</h1>
         </div>
     </section>
 
     <h2 class="section-title">Heros</h2>
 
     <div class="divselect">
-        <label>Number of display :</label>
-        <select name="afficher" id="nbtDisplay">
-    <label for="pet-select">Number of display :</label>
-    <select name="afficher" id="nbtDisplay">
-        <option value="">--Choose an option--</option>
-    <div>
         <label for="pet-select">Number of display :</label>
         <select name="afficher" id="nbtDisplay">
         <option value="">--Please choose an option--</option>
@@ -53,7 +47,7 @@
     </select>
         <br><br>
         <label>Tap to :</label>
-        <input class="divsearch" type="input" class="" placeholder="Search" required/>
+        <input class="divsearch" type="input" class="" placeholder="Search" id="searchfunction" required />
     </div>
 
     <div class="divtab">
@@ -63,7 +57,7 @@
                     <th class="button">Trier par : </th>
                     <th class="button"><button type="button" id="Name" onClick="NameAZ();">Name</button></th>
                     <th class="button"><button type="button" id="Fname" onClick="FullName();">Full Name</th>
-                <th class="button"><button type="button" id="Intell" onClick="Int();">Int</button></th>
+                    <th class="button"><button type="button" id="Intell" onClick="Int();">Int</button></th>
                     <th class="button"><button type="button" id="Str" onClick="Strength();">Str</button></th>
                     <th class="button"><button type="button" id="Spe" onClick="Speed();">Spe</button></th>
                     <th class="button"><button type="button" id="Dur" onClick="Dur();">Dur</button></th>
@@ -81,6 +75,13 @@
                 <script type="module" src="generateTable.js"></script>
             </tbody>
         </table>
+    </div>
+
+    <div class="pagination">
+        <a href="#" id="firstPage" >«</a>
+        <a href="#" id="previousPage">Prev</a>
+        <a href="#" id="nextPage">Next</a>
+        <a href="#" id="lastPage">»</a>
     </div>
 
     <div id="popup" class="notshow">
@@ -114,10 +115,23 @@
 
     <footer>
         <div class="logo-footer">
-            <p class="copyright">&copy; 2021 - JS-Project</p>
+            <p class="copyright">&copy; 2022 - JS-Project</p>
         </div>
     </footer>
 
+
+    <div class="footer-basic">
+        <footer>
+            <p class="copyright">LinkedIn</p>
+            <ul class="list-inline">
+                <li><a href="https://www.linkedin.com/in/maxime-chevalier-953848223">Maxime.C</a></li>
+                <li><a href="https://www.linkedin.com/in/florien-quicy/">Florien.Q</a></li>
+                <li><a href="https://www.linkedin.com/in/lisa-achard/">Lisa.A</a></li>
+                <li><a href="https://www.linkedin.com/in/cormerais-flavio-412559223/">Flavio.C</a></li>
+            </ul>
+            <p class="copyright">&copy; 2022 - Challenge-JS: Sortable</p>
+        </footer>
+    </div>
 </body>
 
 </html>
