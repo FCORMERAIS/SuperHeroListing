@@ -1,5 +1,8 @@
+import { GenerateTable } from './generateTable.js';
 import * as DataFilter from './getDataForFilter.js';
 import * as Filter from './mothodeFilter.js';
+import * as pagination from './pagination.js';
+
 
 //let prefuousefilter = ""
 
@@ -22,7 +25,7 @@ export async function filterByPowerstat(cat) {
     for (let i = 0; i < data.length; i++) {
         listId.push(data[i][0])
     }
-    return listId
+    GenerateTable(pagination.DataId(listId))
 }
 
 export async function filterByAppearance(cat) {
@@ -44,7 +47,7 @@ export async function filterByAppearance(cat) {
     for (let i = 0; i < data.length; i++) {
         listId.push(data[i][0])
     }
-    return listId
+    GenerateTable(pagination.DataId(listId))
 }
 
 export async function filterByBiography(cat) {
@@ -60,5 +63,5 @@ export async function filterByBiography(cat) {
     for (let i = 0; i < data.length; i++) {
         listId.push(data[i][0])
     }
-    return listId
+    GenerateTable(pagination.DataId(listId))
 }

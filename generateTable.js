@@ -5,7 +5,7 @@ import * as search from './search.js';
 import { ShowPopup } from './Popup.js';
 import * as pagination from './pagination.js';
 let page = 1
-
+let nb = 20
 document.getElementById('nbtDisplay').addEventListener('change', async function() {
     var liste, nb
     liste = document.getElementById("nbtDisplay")
@@ -36,7 +36,7 @@ document.getElementById("nextPage").addEventListener('click', function(){
 })
 
 document.getElementById("lastPage").addEventListener('click', function() {
-    console.log("lastpage")
+    page = Math.floor(563/nb) 
 })
 
 
