@@ -1,0 +1,276 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Varela Round', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* tete de page */
+
+section.top-page {
+    background: url('../images/bg.png');
+    background-size: cover;
+}
+
+
+/* bannières */
+
+.landing-page {
+    position: relative;
+    padding: 50px 50px;
+    color: white;
+    font-size: 100px;
+}
+
+
+/* choose opt */
+
+.option {
+    margin: 50px;
+}
+
+
+/* title */
+
+.section-title {
+    margin: 50px;
+    font-size: 50px;
+    font-weight: 100;
+    position: relative;
+}
+
+.section-title::before {
+    content: "";
+    position: absolute;
+    background-color: #ADD981;
+    width: 50px;
+    height: 7px;
+    bottom: 0;
+}
+
+.sectionart {
+    margin: 100px;
+}
+
+
+/* search */
+
+
+/* select */
+
+.divselect {
+    margin: 50px;
+}
+
+
+/* TAB */
+
+.ligne {
+    color: white;
+    padding: 5px;
+}
+
+.btn {
+    padding: 5px 15px;
+    background: white;
+    color: black;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+    border: 2px solid black;
+}
+
+.btn:hover {
+    background: grey;
+    color: yellow;
+}
+
+td {
+    text-align: center;
+    padding: 10px;
+}
+
+.divtab {
+    margin: 15px;
+}
+
+table {
+    position: sticky;
+    width: 100%;
+    box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(31, 193, 27) 0px 0px 0px 6px, rgb(255, 217, 19) 0px 0px 0px 9px, rgb(255, 156, 85) 0px 0px 0px 12px, rgb(255, 85, 85) 0px 0px 0px 15px;
+}
+
+table,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+thead,
+tfoot {
+    background-color: black;
+}
+
+
+/* pagination */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 12px 18px;
+    text-decoration: none;
+    height: 20px;
+    margin: 5px 0px 5px 0px;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: grey;
+    border-radius: 22px;
+}
+
+
+/* pied de page */
+
+.footer-basic {
+    padding: 15px;
+    background-color: #2F2638;
+    color: white;
+}
+
+.footer-basic ul {
+    margin: 10px;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.footer-basic li {
+    padding: 0 10px;
+    display: inline-block;
+}
+
+.footer-basic ul a {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.footer-basic ul a:hover {
+    opacity: 1;
+}
+
+.footer-basic .social {
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+.footer-basic .social>a {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    margin: 0 8px;
+    color: inherit;
+    opacity: 0.75;
+}
+
+.footer-basic .social>a:hover {
+    opacity: 0.9;
+}
+
+.footer-basic .copyright {
+    text-align: center;
+    font-size: 15px;
+    color: grey;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    font-family: 'Varela Round', sans-serif;
+    font-family: 'Varela Round', sans-serif;
+}
+
+tr:nth-child(even) {
+    background-color: #e0e0e0;
+}
+
+
+/* Popup */
+
+#popup {
+    position: fixed;
+    top: 15%;
+    left: 15%;
+    background-color: #312641;
+    z-index: 9999;
+    flex-wrap: wrap;
+    padding: 1em;
+    height: 480px;
+    width: calc(320px + 31em);
+    border: 3px solid black;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 5px black;
+}
+
+#close {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    height: 1.4em;
+    width: 1.4em;
+    font-size: large;
+    border-radius: 1em;
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+    z-index: 9999;
+}
+
+.cat {
+    display: inline-block;
+    width: 24%;
+    height: 2.7em;
+    border: black;
+    border-radius: 3em;
+    color: azure;
+    text-align: center;
+    padding-top: 1.3em;
+}
+
+#popupContenant {
+    z-index: 2;
+    width: 30em;
+    overflow: hidden;
+    padding-left: 1em;
+}
+
+.PopupInfo {
+    color: azure;
+    padding: 0.5em;
+    text-align: center;
+    line-height: 2em;
+}
+
+#tape {
+    height: calc(4em - 1px);
+    position: fixed;
+    background-color: #211B2D;
+    width: calc(320px + 32em);
+    z-index: 1;
+    margin-top: 3em;
+}
