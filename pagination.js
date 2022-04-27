@@ -7,7 +7,7 @@ async function GetData(id) { // fonction servant à récupérer les données d'u
     }
 }
 
-export async function Page(listId = [], nb = 20, page = 1) {
+export async function Page(listId = [], nb = 20, page = 1) { // fonction servant à récupérer les données des personnages et renvoie la liste avec tout les personnages utile en fonction de la page demandé et du nombre 
     let data = {}
     let i = 1
     let res = []
@@ -21,7 +21,7 @@ export async function Page(listId = [], nb = 20, page = 1) {
                 }
                 i++
             }
-            data = await Promise.all(PromiseList).then(function(values) {
+            data = await Promise.all(PromiseList).then(function(values) { // cette commande sert a recupérer tout les personnages en ne faisant qu'un aller retour vers l'API
                 return values
             })
             for (let index = 0; index < data.length; index++) {
@@ -34,13 +34,13 @@ export async function Page(listId = [], nb = 20, page = 1) {
             }
             count++
         }
-        return res.slice(nb * (page - 1), nb * page)
+        return res.slice(nb * (page - 1), nb * page) // on renvoie les héros nécessaires en fonction de la page demandé
     } else {
         return await DataId(listId, nb, page)
     }
 }
 
-async function DataId(listId, nb, page) {
+async function DataId(listId, nb, page) { // fonction recevant en parametre une liste d'id et renvoie la liste des héros correspondant
     let data = {}
     let PromiseList = []
     for (let i = (nb * (page - 1)); i < (nb * page); i++) {

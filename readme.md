@@ -1,26 +1,33 @@
-# Bievenue sur Sortable
+# Welcome to our JS Project !
 
 
-ce petit programme consiste à récupérer les donnes d'une [API](https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json), pour ensuite les affiches sur une page web
+# Explications :
+
+This project was created by first year students of computer sciences. As part of our JavaScript piscine, our exam is a final project which consists in a program capable of getting the following [API]'s data (https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json) in order to display it on a website.
+
+The program can sort data by different filters (identity, powerstats, appearance, biography) which allows the user to search precisely the hero they want to find. They can also directly type some key-words (name, publisher...) in a search bar. 
 
 
-# Auteurs
+# Propriety : 
 
-* Quicy Florien
-* Maxime Chevalier
-* Lisa Achard
-* Flavio Cormerais
+The project belongs to Nantes Ynov Campus and its authors. 
 
 
-# Language utilisés ?
+# Authors (4) :
 
-* JS
-* HTML
-* CSS
+- ACHARD Lisa => lisa.achard@ynov.com
+- CHEVALIER Maxime => maxime.chevalier@ynov.com
+- CORMERAIS Flavio => flavio.cormerais@ynov.com
+- QUICY Florien => florien.quicy@ynov.com
 
 
-# Instruction
+# Used technologies :
 
-Pour commencer installer L'extension live Server ensuite en bas a droite de VScode cliquer sur GO Live.
+- JS
+- HTML
+- CSS
 
-Puis rendez-vous sur [Challenge-JS-Sortable](http://127.0.0.1:5500/index.html) !
+
+# Instructions : 
+
+First, install the "live Serveur" extension in the VScode's bottom right. Then click on "GO Live" to go on [Challenge-JS-Sortable](http://127.0.0.1:5500/index.html) !
