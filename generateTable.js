@@ -62,7 +62,7 @@ export async function GenerateTable(data) {
     for (let i = 0; i < data.length; i++) { // on répète la la boucle autant de fois qu'il n'y a de héros 
         const tr = document.createElement("tr") // on créer une nouvelle ligne a notre table
 
-        if (data[i].images.sm == "error") {
+        if (data[i] == false) {
             tr.innerHTML = "ERROR : NOT FOUND"
             tr.style.textAlign = "center";
         } else {
